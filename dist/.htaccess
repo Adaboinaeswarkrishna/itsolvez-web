@@ -1,0 +1,86 @@
+Options -Indexes
+Options +FollowSymLinks
+
+# ─── Force HTTPS ───────────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ─── Remove www ────────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ─── Old WordPress URL redirects (301 permanent) ───────────────
+
+# Company pages
+Redirect 301 /company/about               /about/
+Redirect 301 /company/about-us            /about/
+Redirect 301 /company/why-choose-us       /about/
+Redirect 301 /company/leadership          /about/
+Redirect 301 /company/mission-vision-values /about/
+Redirect 301 /company/faq                 /faq/
+Redirect 301 /company/careers             /careers/
+Redirect 301 /company/pricing             /pricing/
+Redirect 301 /company/locations           /locations/
+
+# Old service URLs
+Redirect 301 /it-solutions/managed-it-services           /services/managed-it/
+Redirect 301 /it-solutions/cloud-computing               /services/cloud-computing/
+Redirect 301 /it-solutions/cybersecurity                 /services/cyber-security/
+Redirect 301 /it-solutions/cyber-security                /services/cyber-security/
+Redirect 301 /it-solutions/custom-software-development   /services/custom-software/
+Redirect 301 /it-solutions/web-development               /services/web-development/
+Redirect 301 /it-solutions/app-development               /services/app-development/
+Redirect 301 /it-solutions/digital-marketing             /services/digital-marketing/
+Redirect 301 /it-solutions/it-consulting                 /services/it-consultancy/
+Redirect 301 /it-solutions/it-staff-augmentation         /services/it-staff-augmentation/
+Redirect 301 /it-solutions/it-infrastructure-management  /services/it-infrastructure-management/
+Redirect 301 /it-solutions/system-integration            /services/system-integration/
+Redirect 301 /it-solutions/backup-and-recovery           /services/managed-it/
+Redirect 301 /services/it-consulting                     /services/it-consultancy/
+Redirect 301 /services/cybersecurity                     /services/cyber-security/
+
+# Old industry URLs
+Redirect 301 /it-solutions/banking             /industries/banking/
+Redirect 301 /it-solutions/capital-markets      /industries/capital-markets/
+Redirect 301 /it-solutions/manufacturing        /industries/manufacturing/
+Redirect 301 /it-solutions/healthcare           /industries/healthcare/
+Redirect 301 /it-solutions/higher-education     /industries/higher-education/
+Redirect 301 /it-solutions/logistics            /industries/logistics/
+Redirect 301 /it-solutions/enterprise-technology /industries/enterprise-technology/
+
+# Other old aliases
+Redirect 301 /services-overview  /services/
+Redirect 301 /portfolio          /case-studies/
+
+# ─── Custom 404 ────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ─── Next.js static export — pretty URLs ───────────────────────
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Serve index.html for directory requests
+DirectoryIndex index.html
+
+# ─── Security headers ──────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ─── Cache static assets ───────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp         "access plus 1 year"
+  ExpiresByType image/png          "access plus 1 year"
+  ExpiresByType image/jpeg         "access plus 1 year"
+  ExpiresByType image/svg+xml      "access plus 1 year"
+  ExpiresByType text/css           "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/json   "access plus 0 seconds"
+</IfModule>
