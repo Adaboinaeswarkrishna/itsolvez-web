@@ -3,7 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  Menu, X, ChevronDown, type LucideIcon,
+  Info, Package, Award, MapPin, Briefcase, Tag, HelpCircle,
+  Bot, Server, Headset, Cloud, Shield, Code2, Globe, Smartphone,
+  Megaphone, Lightbulb, Users, Network, Boxes, BarChart3,
+  Landmark, TrendingUp, HeartPulse, ShoppingCart, GraduationCap,
+  Factory, Building2, Truck, Plane, Building, Layers,
+} from "lucide-react";
 
 export interface NavSubItem {
   label: string;
@@ -20,6 +27,59 @@ export interface NavData {
   items: NavItem[];
   cta_label: string;
   cta_url: string;
+}
+
+// Keyword → icon, checked against each sub-item's label (case-insensitive).
+// Falls back to a generic icon for anything unmatched, so this stays
+// correct even if the CMS nav content changes without a code update.
+const ICON_RULES: [string, LucideIcon][] = [
+  ["about", Info],
+  ["product", Package],
+  ["certif", Award],
+  ["location", MapPin],
+  ["career", Briefcase],
+  ["pricing", Tag],
+  ["faq", HelpCircle],
+  ["ai-powered", Bot],
+  ["ai ", Bot],
+  ["managed it", Server],
+  ["support", Headset],
+  ["service desk", Headset],
+  ["cloud", Cloud],
+  ["cyber", Shield],
+  ["security", Shield],
+  ["custom software", Code2],
+  ["web development", Globe],
+  ["app development", Smartphone],
+  ["digital marketing", Megaphone],
+  ["consultancy", Lightbulb],
+  ["staff augmentation", Users],
+  ["infrastructure", Network],
+  ["system integration", Boxes],
+  ["data and analytics", BarChart3],
+  ["analytics", BarChart3],
+  ["banking", Landmark],
+  ["finance", Landmark],
+  ["capital markets", TrendingUp],
+  ["healthcare", HeartPulse],
+  ["retail", ShoppingCart],
+  ["e-commerce", ShoppingCart],
+  ["higher education", GraduationCap],
+  ["education", GraduationCap],
+  ["manufacturing", Factory],
+  ["real estate", Building2],
+  ["logistics", Truck],
+  ["travel", Plane],
+  ["hospitality", Plane],
+  ["enterprise technology", Building],
+];
+
+function iconFor(label: string): LucideIcon {
+  const l = label.toLowerCase();
+  for (const [key, Icon] of ICON_RULES) {
+    if (l.includes(key)) return Icon;
+  }
+  return Layers;
 }
 
 export default function NavigationClient({ nav }: { nav: NavData }) {
@@ -62,7 +122,7 @@ export default function NavigationClient({ nav }: { nav: NavData }) {
               item.sub_items && item.sub_items.length > 0 ? (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="group relative"
                   onMouseEnter={() => setOpenDropdown(item.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -76,7 +136,9 @@ export default function NavigationClient({ nav }: { nav: NavData }) {
                     {item.label}
                     <ChevronDown
                       size={13}
-                      className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                      className={`transition-all duration-200 ${
+                        openDropdown === item.label ? "rotate-180 text-[#F04830]" : "group-hover:text-[#F04830]"
+                      }`}
                     />
                   </button>
 
@@ -84,20 +146,26 @@ export default function NavigationClient({ nav }: { nav: NavData }) {
                       this panel on hover caused a Next.js router crash when switching directly
                       between two open dropdowns (rapid Link mount/unmount race). */}
                   <div
-                    className={`absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-2xl shadow-black/12 border border-gray-100 py-2 z-50 ${
-                      openDropdown === item.label ? "block" : "hidden"
-                    }`}
+                    className={`absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl shadow-black/12 border border-gray-100 p-2 z-50 ${
+                      item.sub_items.length > 8 ? "w-[520px] grid grid-cols-2 gap-0.5" : "w-72"
+                    } ${openDropdown === item.label ? "block" : "hidden"}`}
                   >
-                    {item.sub_items.map((child) => (
-                      <Link
-                        key={child.url}
-                        href={child.url}
-                        prefetch={false}
-                        className="block px-4 py-2.5 text-sm text-[#475569] hover:text-[#1878F0] hover:bg-[#EEF6FF] transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.sub_items.map((child) => {
+                      const Icon = iconFor(child.label);
+                      return (
+                        <Link
+                          key={child.url}
+                          href={child.url}
+                          prefetch={false}
+                          className="group/item flex items-center gap-3 rounded-lg px-2.5 py-2 text-sm text-[#475569] hover:bg-[#EEF6FF] hover:text-[#1878F0] transition-colors"
+                        >
+                          <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#EAF2FF] text-[#1878F0] transition-colors group-hover/item:bg-[#1878F0] group-hover/item:text-white">
+                            <Icon size={15} />
+                          </span>
+                          {child.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               ) : (
@@ -155,21 +223,27 @@ export default function NavigationClient({ nav }: { nav: NavData }) {
                     {item.label}
                     <ChevronDown
                       size={14}
-                      className={`text-[#94A3B8] transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
+                      className={`transition-transform ${openDropdown === item.label ? "rotate-180 text-[#F04830]" : "text-[#94A3B8]"}`}
                     />
                   </button>
-                  <div className={`pl-4 py-1 space-y-0.5 ${openDropdown === item.label ? "block" : "hidden"}`}>
-                      {item.sub_items.map((child) => (
-                        <Link
-                          key={child.url}
-                          href={child.url}
-                          prefetch={false}
-                          onClick={() => setIsOpen(false)}
-                          className="block px-3 py-2.5 text-sm text-[#64748B] hover:text-[#1878F0] hover:bg-[#EEF6FF] rounded-lg transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                  <div className={`grid grid-cols-1 gap-0.5 pl-4 py-1 ${openDropdown === item.label ? "block" : "hidden"}`}>
+                      {item.sub_items.map((child) => {
+                        const Icon = iconFor(child.label);
+                        return (
+                          <Link
+                            key={child.url}
+                            href={child.url}
+                            prefetch={false}
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-[#64748B] hover:text-[#1878F0] hover:bg-[#EEF6FF] transition-colors"
+                          >
+                            <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#1878F0]">
+                              <Icon size={13} />
+                            </span>
+                            {child.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                 </div>
               ) : (

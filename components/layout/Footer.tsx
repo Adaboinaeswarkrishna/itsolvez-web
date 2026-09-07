@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, ArrowRight, ShieldCheck } from "lucide-react";
-import NewsletterForm from "./NewsletterForm";
 import { API_BASE, fixMediaUrl } from "@/lib/wagtail";
 import { cities } from "@/lib/data/cities";
 import { telHref } from "@/lib/validation";
@@ -38,7 +37,7 @@ const FALLBACK: FooterData = {
   linkedin_url: "https://linkedin.com/company/itsolvez",
   twitter_url: "",
   instagram_url: "https://instagram.com/itsolvez",
-  facebook_url: "https://www.facebook.com/itsolvez",
+  facebook_url: "https://www.facebook.com/profile.php?id=61591171015523",
   columns: [
     { heading: "Services", links: [
       { label: "Managed IT Services", url: "/services/managed-it" },
@@ -263,19 +262,6 @@ export default async function Footer() {
                 </ul>
               </div>
             ))}
-
-            {/* Newsletter */}
-            {f.newsletter_heading && (
-              <div>
-                <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-3">
-                  {f.newsletter_heading}
-                </h3>
-                {f.newsletter_description && (
-                  <p className="text-sm mb-3">{f.newsletter_description}</p>
-                )}
-                <NewsletterForm />
-              </div>
-            )}
           </div>
         </div>
       </div>
