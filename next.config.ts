@@ -1,60 +1,79 @@
 import type { NextConfig } from "next";
 
+const DJANGO = "http://127.0.0.1:8095";
+
 const nextConfig: NextConfig = {
+  skipTrailingSlashRedirect: true,
+  compress: true,
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        pathname: "/**",
-      },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+      { protocol: "http", hostname: "localhost", port: "8000", pathname: "/**" },
+      { protocol: "http", hostname: "127.0.0.1", port: "8000", pathname: "/**" },
+      { protocol: "https", hostname: "itsolvez.com", pathname: "/**" },
     ],
+    formats: ["image/avif", "image/webp"],
+    qualities: [60, 70, 75],
+    // Cap hero images at 1920px — no 4K variants, halves LCP image weight
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
   },
-
   async redirects() {
     return [
-      // Company pages
-      { source: "/company/about", destination: "/about", permanent: true },
-      { source: "/company/about-us", destination: "/about", permanent: true },
-      { source: "/company/why-choose-us", destination: "/about", permanent: true },
-      { source: "/company/leadership", destination: "/about", permanent: true },
-      { source: "/company/mission-vision-values", destination: "/about", permanent: true },
-      { source: "/company/faq", destination: "/faq", permanent: true },
-      { source: "/company/careers", destination: "/careers", permanent: true },
-      { source: "/company/pricing", destination: "/pricing", permanent: true },
-      { source: "/company/locations", destination: "/locations", permanent: true },
-      // Old service URLs
-      { source: "/it-solutions/managed-it-services", destination: "/services/managed-it", permanent: true },
-      { source: "/it-solutions/cloud-computing", destination: "/services/cloud-computing", permanent: true },
-      { source: "/it-solutions/cybersecurity", destination: "/services/cyber-security", permanent: true },
-      { source: "/it-solutions/cyber-security", destination: "/services/cyber-security", permanent: true },
-      { source: "/it-solutions/custom-software-development", destination: "/services/custom-software", permanent: true },
-      { source: "/it-solutions/web-development", destination: "/services/web-development", permanent: true },
-      { source: "/it-solutions/app-development", destination: "/services/app-development", permanent: true },
-      { source: "/it-solutions/digital-marketing", destination: "/services/digital-marketing", permanent: true },
-      { source: "/it-solutions/it-consulting", destination: "/services/it-consultancy", permanent: true },
-      { source: "/it-solutions/it-staff-augmentation", destination: "/services/it-staff-augmentation", permanent: true },
-      { source: "/it-solutions/it-infrastructure-management", destination: "/services/it-infrastructure-management", permanent: true },
-      { source: "/it-solutions/system-integration", destination: "/services/system-integration", permanent: true },
-      { source: "/it-solutions/backup-and-recovery", destination: "/services/managed-it", permanent: true },
-      { source: "/services/it-consulting", destination: "/services/it-consultancy", permanent: true },
-      { source: "/services/cybersecurity", destination: "/services/cyber-security", permanent: true },
-      // Old industry URLs
-      { source: "/it-solutions/banking", destination: "/industries/banking", permanent: true },
-      { source: "/it-solutions/capital-markets", destination: "/industries/capital-markets", permanent: true },
-      { source: "/it-solutions/manufacturing", destination: "/industries/manufacturing", permanent: true },
-      { source: "/it-solutions/healthcare", destination: "/industries/healthcare", permanent: true },
-      { source: "/it-solutions/higher-education", destination: "/industries/higher-education", permanent: true },
-      { source: "/it-solutions/logistics", destination: "/industries/logistics", permanent: true },
-      { source: "/it-solutions/enterprise-technology", destination: "/industries/enterprise-technology", permanent: true },
-      // Other aliases
-      { source: "/services-overview", destination: "/services", permanent: true },
-      { source: "/portfolio", destination: "/case-studies", permanent: true },
+      // Strip trailing slashes (duplicate-content fix) — except Django-proxied paths,
+      // which require them (skipTrailingSlashRedirect exists for those).
+      {
+        source: "/:path((?!admin|django-admin|api|static|media|documents|_next).+)/",
+        destination: "/:path",
+        permanent: true,
+      },
+      // Suburb pages consolidated into the flagship /locations/mumbai page (July 2026)
+      // Thane un-consolidated 2026-07-28 — confirmed real, distinct keyword demand ("software development company in thane")
+      // and Thane is administratively its own city (separate municipal corporation), not just a Mumbai suburb.
+      { source: "/locations/mira-road", destination: "/locations/mumbai", permanent: true },
+      { source: "/locations/borivali", destination: "/locations/mumbai", permanent: true },
+      { source: "/locations/andheri", destination: "/locations/mumbai", permanent: true },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-DNS-Prefetch-Control", value: "on" },
+        ],
+      },
+      {
+        source: "/(badges|certificates)/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Wagtail admin UI
+      { source: "/admin/:path*", destination: `${DJANGO}/admin/:path*` },
+      // Django admin
+      { source: "/django-admin/:path*", destination: `${DJANGO}/django-admin/:path*` },
+      // Wagtail API
+      { source: "/api/v2/:path*", destination: `${DJANGO}/api/v2/:path*/` },
+      // Custom Django API endpoints
+      { source: "/api/leads/", destination: `${DJANGO}/api/leads/` },
+      { source: "/api/portfolio/", destination: `${DJANGO}/api/portfolio/` },
+      { source: "/api/navigation/", destination: `${DJANGO}/api/navigation/` },
+      { source: "/api/footer/", destination: `${DJANGO}/api/footer/` },
+      { source: "/api/home/", destination: `${DJANGO}/api/home/` },
+      { source: "/api/v2/job-openings/", destination: `${DJANGO}/api/v2/job-openings/` },
+      { source: "/api/v2/faq/", destination: `${DJANGO}/api/v2/faq/` },
+      { source: "/api/v2/team-members/", destination: `${DJANGO}/api/v2/team-members/` },
+      // Django static & media files (for Wagtail admin assets)
+      { source: "/static/:path*", destination: `${DJANGO}/static/:path*` },
+      { source: "/media/:path*", destination: `${DJANGO}/media/:path*` },
+      { source: "/documents/:path*", destination: `${DJANGO}/documents/:path*` },
     ];
   },
 };

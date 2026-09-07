@@ -13,10 +13,10 @@ export default function NotFound() {
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/" className="btn-primary">
+          <Link href="/" className="btn-primary" prefetch={false}>
             <Home size={16} /> Back to Home
           </Link>
-          <Link href="/contact" className="btn-ghost">
+          <Link href="/contact" className="btn-ghost" prefetch={false}>
             Contact us <ArrowRight size={16} />
           </Link>
         </div>

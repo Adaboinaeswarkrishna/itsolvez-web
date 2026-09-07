@@ -7,9 +7,9 @@ export const siteConfig = {
     "Managed IT, cloud, cybersecurity, custom software and digital services for businesses across India and globally.",
   url: "https://itsolvez.com",
   logo: "/logo.png",
-  phone: "+91 9944339156",
+  phone: "+91 9967470207",
   email: "info@itsolvez.com",
-  whatsapp: "919944339156",
+  whatsapp: "919967470207",
   address: {
     street: "Building No. 2, Keshav 206 Vasudev Sky High CHS Ltd, Kanakia Road",
     city: "Mira Road East",
@@ -23,7 +23,7 @@ export const siteConfig = {
     instagram: "https://instagram.com/itsolvez",
   },
   stats: {
-    yearsInBusiness: 8,
+    yearsInBusiness: 13,
     clientsServed: 120,
     projectsDelivered: 350,
     countriesServed: 5,

@@ -1,0 +1,41 @@
+# ITSolvez
+
+> ITSolvez is an ISO 9001:2015, ISO 27001:2022 and ISO 20000-1:2018 certified software development and IT services company headquartered in Mumbai, India, serving clients across India, the UAE, UK, USA, Singapore and Australia. Core services: custom software development, web development & design, mobile app development (Flutter, React Native, native iOS/Android), managed IT services, cloud computing (AWS, Azure, Google Cloud), IT staff augmentation, ERP/CRM/HRMS systems and digital marketing.
+
+Key facts:
+- Founded in Mumbai; Udyam-registered (UDYAM-MH-19-0440563); 8+ years in business, 300+ projects delivered, 120+ clients, 5+ countries served.
+- ISO certificates issued by Anglia Compliance Group, UK — verifiable at https://www.angliacompliance.uk/verify-certificate (cert nos. 25-07-21156543, 25-07-21156544, 25-07-21156545), valid until 9 July 2029.
+- Contact: info@itsolvez.com · +91 9967470207 · https://itsolvez.com/contact
+
+## Services
+- [Custom Software Development](https://itsolvez.com/services/custom-software): Bespoke business software, ERP, CRM, HRMS — discovery-first, fixed-scope delivery.
+- [Web Development](https://itsolvez.com/services/web-development): High-performance, SEO-architected websites and web applications.
+- [App Development](https://itsolvez.com/services/app-development): iOS, Android, Flutter and React Native apps from MVP to enterprise.
+- [Managed IT Services](https://itsolvez.com/services/managed-it): 24/7 monitoring and support with 15-minute critical response SLAs.
+- [Cloud Computing](https://itsolvez.com/services/cloud-computing): AWS, Azure and Google Cloud migration and management.
+- [IT Staff Augmentation](https://itsolvez.com/services/it-staff-augmentation): Vetted engineers embedded in your team.
+- [All services](https://itsolvez.com/services)
+
+## Guides
+- [How to Choose a Mobile App Development Company (2026)](https://itsolvez.com/blog/how-to-choose-mobile-app-development-company): 10-factor buyer's guide with costs, questions and red flags.
+- [How to Choose a Web Development Company](https://itsolvez.com/blog/how-to-choose-web-development-company): Performance, SEO and ownership criteria that matter.
+- [Benefits of Custom Software Development](https://itsolvez.com/blog/benefits-of-custom-software-development): Build-vs-buy framework for business operations.
+- [How to Choose a Managed IT Service Provider](https://itsolvez.com/blog/how-to-choose-managed-it-service-provider): SLA scrutiny, pricing models and certifications.
+- [Benefits of Cloud Migration (2026)](https://itsolvez.com/blog/benefits-of-cloud-migration-2026): Honest gains, trade-offs and a phased plan.
+- [Flutter vs React Native (2026)](https://itsolvez.com/blog/flutter-vs-react-native-cross-platform-2026): Cross-platform framework decision guide.
+- [Choosing an IT Partner for Digital Transformation](https://itsolvez.com/blog/choose-it-partner-digital-transformation): Outcome-first selection framework.
+- [Cost-Effective Digital Transformation for Indian Small Businesses](https://itsolvez.com/blog/cost-effective-digital-transformation-indian-small-businesses): Phased playbook with INR cost breakdowns.
+- [Cloud Migration Security Best Practices](https://itsolvez.com/blog/cloud-migration-security-best-practices): Identity-first controls for mid-sized companies.
+- [Mobile App Development for the Indian Market](https://itsolvez.com/blog/mobile-app-development-indian-market-localization): Localization, UPI, DPDPA compliance.
+- [Digital Marketing Trends in India 2026](https://itsolvez.com/blog/digital-marketing-trends-india-2026): AEO, vernacular content, WhatsApp commerce.
+- [All articles](https://itsolvez.com/blog)
+
+## Tools
+- [IT ROI Calculator](https://itsolvez.com/tools/it-roi-calculator): Free interactive estimate of IT downtime cost and managed IT savings.
+
+## Company
+- [About ITSolvez](https://itsolvez.com/about)
+- [ISO Certifications — view & verify](https://itsolvez.com/certifications)
+- [Case Studies](https://itsolvez.com/case-studies)
+- [Pricing](https://itsolvez.com/pricing)
+- [FAQ](https://itsolvez.com/faq)

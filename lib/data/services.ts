@@ -14,6 +14,7 @@ export interface Service {
   ctaLink: string;
   keywords: string[];
   faq: { q: string; a: string }[];
+  deepDive?: { heading: string; body: string }[];
 }
 
 export const services: Service[] = [
@@ -42,6 +43,7 @@ export const services: Service[] = [
       "Less downtime — proactive monitoring catches failures before they stop work",
       "Scales with you — add or remove users with a conversation, not a hiring cycle",
       "Enterprise-grade, SME-friendly — Microsoft Partner, AWS and Google Cloud expertise",
+      "ISO 20000-1:2018 certified IT service management — our SLAs and processes are independently audited",
     ],
     cta: "Book a free IT assessment",
     ctaLink: "/contact",
@@ -49,6 +51,8 @@ export const services: Service[] = [
       "managed IT services", "managed IT services India", "managed service provider MSP",
       "IT infrastructure management", "24/7 IT monitoring", "proactive IT support",
       "managed IT services Pune", "IT support company in India",
+      "managed it services india", "managed it services mumbai", "it services for small business india", "managed service provider india", "managed it services pricing india", "it amc services mumbai", "annual maintenance contract it services", "outsourced it support india", "it support for startups india", "it outsourcing for small business",
+      "computer amc services mumbai", "it amc company mumbai", "it company in mumbai", "top it companies in mumbai", "it services company mumbai", "annual maintenance contract computer mumbai", "best managed it services company india",
     ],
     faq: [
       {
@@ -75,11 +79,11 @@ export const services: Service[] = [
   },
   {
     slug: "it-support",
-    title: "IT Support & Service Desk",
+    title: "IT Support and Service Desk",
     shortTitle: "IT Support",
     description: "Fast, expert helpdesk support for your team — remote and on-site.",
     icon: "HeadphonesIcon",
-    metaTitle: "IT Support & Helpdesk Services India — ITSolvez",
+    metaTitle: "IT Support and Helpdesk Services India — ITSolvez",
     metaDescription:
       "Fast, expert IT helpdesk for your team. Remote and on-site support with SLA-backed response times. Free trial consultation available.",
     h1: "IT support your team can actually rely on.",
@@ -98,12 +102,15 @@ export const services: Service[] = [
       "Named engineers — no explaining your setup from scratch every call",
       "Flexible coverage — business-hours or 24/7 support tiers",
       "Reduces internal IT burden — your team focuses on what matters",
+      "ISO 20000-1:2018 certified service desk — response times and escalation independently audited",
     ],
     cta: "Get support now",
     ctaLink: "/contact",
     keywords: [
       "IT support India", "IT helpdesk services", "on-site IT support",
       "remote IT support", "IT support company Pune",
+      "it support company india", "it support services mumbai", "remote it support services india", "it helpdesk services india", "it amc cost india",
+      "24/7 server monitoring company", "computer amc services", "it support company near me", "annual maintenance contract it support",
     ],
     faq: [
       {
@@ -122,11 +129,11 @@ export const services: Service[] = [
   },
   {
     slug: "it-consultancy",
-    title: "IT Consultancy & Digital Transformation",
+    title: "IT Consultancy and Digital Transformation",
     shortTitle: "IT Consultancy",
     description: "Practical IT strategy and digital transformation guidance tied to business outcomes.",
     icon: "Lightbulb",
-    metaTitle: "IT Consultancy & Digital Transformation — ITSolvez India",
+    metaTitle: "IT Consultancy and Digital Transformation — ITSolvez India",
     metaDescription:
       "Practical IT strategy and digital-transformation guidance that ties technology to business outcomes. Book a consultation.",
     h1: "Technology strategy that's tied to business outcomes.",
@@ -169,11 +176,11 @@ export const services: Service[] = [
   },
   {
     slug: "cloud-computing",
-    title: "Cloud Computing & Cloud Migration",
+    title: "Cloud Computing and Cloud Migration",
     shortTitle: "Cloud Services",
     description: "Design, migrate and manage AWS, Azure and Google Cloud environments without surprise bills.",
     icon: "Cloud",
-    metaTitle: "Cloud Computing & Migration Services | AWS · Azure — ITSolvez",
+    metaTitle: "Cloud Computing Services India — AWS, Azure | ITSolvez",
     metaDescription:
       "Migrate, secure and optimise your cloud with certified engineers. Lower costs, higher uptime, zero-drama migrations. Talk to a cloud specialist.",
     h1: "Move to the cloud without the downtime — or the surprise bills.",
@@ -192,6 +199,7 @@ export const services: Service[] = [
       "Most cloud overspend comes from unmanaged environments — we treat yours as a living system",
       "Staged migrations mean no big-bang cutover risk",
       "Certified on AWS, Azure and Google Cloud — vendor-agnostic recommendations",
+      "ISO 27001:2022 certified — your cloud credentials and data are handled under an audited security management system",
     ],
     cta: "Get a free cloud readiness assessment",
     ctaLink: "/contact",
@@ -199,6 +207,7 @@ export const services: Service[] = [
       "cloud computing services India", "cloud migration services", "managed cloud services",
       "AWS migration India", "Azure migration", "cloud cost optimisation",
       "cloud computing company Pune",
+      "cloud migration services india", "aws consulting company india", "azure consulting services india", "cloud managed services india", "cloud consulting company mumbai", "aws cost optimization services", "cloud migration cost india", "devops services company india", "cloud backup services for business india", "disaster recovery services india", "aws migration services", "cloud security services india",
     ],
     faq: [
       {
@@ -221,11 +230,11 @@ export const services: Service[] = [
   },
   {
     slug: "cyber-security",
-    title: "Cybersecurity & Managed Security",
+    title: "Cybersecurity and Managed Security",
     shortTitle: "Cybersecurity",
     description: "24/7 managed threat detection, endpoint security, and compliance for Indian businesses.",
     icon: "Shield",
-    metaTitle: "Cybersecurity & Managed Security Services India — ITSolvez",
+    metaTitle: "Cybersecurity and Managed Security Services India — ITSolvez",
     metaDescription:
       "Stop ransomware, phishing and data loss with 24/7 managed security. Threat detection, response and compliance. Book a free security assessment.",
     h1: "Security delivered as a managed outcome — not a one-off tool.",
@@ -245,6 +254,7 @@ export const services: Service[] = [
       "India 2026 information-security spend projected at USD 3.4B (+11.7% YoY) — the threat is real",
       "Continuous monitoring, fast response, and an aware team are what separate a contained event from a business-stopping one",
       "DPDPA 2023 and ISO 27001 compliance built into your security posture",
+      "We hold ISO 27001:2022 certification ourselves — we run the same audited ISMS we help you build",
     ],
     cta: "Book a free security assessment",
     ctaLink: "/contact",
@@ -297,6 +307,7 @@ export const services: Service[] = [
       "Agile delivery in sprints — you see working software every two weeks",
       "Senior engineers, clean handover, documented code — not a black box",
       "Maintenance plan from day one — we don't disappear after launch",
+      "ISO 9001:2015 certified quality management — every project runs through audited delivery processes",
     ],
     cta: "Get a custom software quote",
     ctaLink: "/contact",
@@ -304,6 +315,7 @@ export const services: Service[] = [
       "custom software development India", "software development company India",
       "bespoke software development", "SaaS development", "enterprise software development",
       "software development company Pune", "hire software development team India",
+      "custom software development company india", "software development company in mumbai", "erp software development company india", "erp software for small business india", "crm software development company", "crm for small business india", "hrms software india", "payroll software india small business", "custom software development cost india", "saas development company india", "inventory management software india", "billing software for small business india", "software product development services india", "travel booking software development", "crm companies", "software outsourcing companies in india", "best software companies in india", "top software companies", "top 10 software companies in india",
     ],
     faq: [
       {
@@ -323,14 +335,28 @@ export const services: Service[] = [
         a: "We offer ongoing maintenance and support plans that cover security updates, bug fixes, performance monitoring, and feature enhancements. We treat post-launch as the start of the project, not the end.",
       },
     ],
+    deepDive: [
+      {
+        heading: "How to choose a software development company in India",
+        body: "India has thousands of software companies, and the quality gap between them is large. When you compare software development companies in India, look past the marketing page and check three things. First, ask to see real client work, not just a portfolio slide. Second, ask how they scope a project before they start coding, because a company that cannot give you a fixed-scope estimate is guessing at your budget. Third, ask what happens after launch, since software needs updates and support long after the first release. We run a paid discovery phase before any code is written, so you know the cost and timeline in advance, and we stay on after launch under a maintenance plan rather than moving on to the next client.",
+      },
+      {
+        heading: "CRM software that fits how your sales team works",
+        body: "Off-the-shelf CRM tools work well for a standard sales process, but plenty of businesses run a process that does not fit a template. If your team is working around the CRM instead of the CRM working for them, a custom-built CRM often costs less over three years than paying per-seat licence fees for a tool nobody wants to use. We build CRM software around your actual pipeline stages, the tools you already use, and the reports your sales managers check every week.",
+      },
+      {
+        heading: "Software outsourcing done properly",
+        body: "Outsourcing software development to India works when it is set up correctly, and fails when a company treats it as a way to get code written cheaply with no oversight. Businesses that get real value from outsourcing keep a direct line to the developers writing their code, get working demos instead of status reports, and own their code and documentation from day one. That is how we run every outsourced engagement, whether it is one developer joining your team or a full project delivered end to end.",
+      },
+    ],
   },
   {
     slug: "web-development",
-    title: "Web Development & Web Design",
+    title: "Web Development and Web Design",
     shortTitle: "Web Development",
     description: "Fast, responsive, SEO-ready websites and e-commerce built to convert.",
     icon: "Globe",
-    metaTitle: "Web Development & Web Design Company India — ITSolvez",
+    metaTitle: "Web Development and Web Design Company India — ITSolvez",
     metaDescription:
       "Fast, responsive, SEO-ready websites and e-commerce. Custom design, modern stack, real conversion focus. Start your project.",
     h1: "Websites that load fast, look like you, and convert.",
@@ -349,6 +375,7 @@ export const services: Service[] = [
       "SEO and AEO architecture from day one — not a last-minute checklist",
       "CMS handover — your marketing team can publish without a developer",
       "Conversion focus — we design and measure against leads, not just aesthetics",
+      "ISO 9001:2015 certified delivery — audited quality processes from brief to launch",
     ],
     cta: "Start your project",
     ctaLink: "/contact",
@@ -356,6 +383,8 @@ export const services: Service[] = [
       "web development company India", "website development services", "web design company India",
       "e-commerce development India", "responsive web design", "best web designing company India",
       "web development company Pune", "web design agency India",
+      "web development company in india", "website development company india", "web development company mumbai", "website design company mumbai", "web development services india", "best web development company in india", "corporate website development company", "business website development india", "nextjs development company india", "react development company india", "website redesign services india", "web application development company india", "custom web development services", "ecommerce website development company india", "shopify development company india", "website development cost in india",
+      "website designing company", "website designing company mumbai", "website designing company in india", "web design company in mumbai", "web development company near me", "affordable website development company india", "small business website design company", "responsive website design company", "website development agency mumbai", "wordpress website development company", "ui ux design company mumbai", "landing page design company", "website maintenance cost india", "web design company", "website developers", "top website designers in india",
     ],
     faq: [
       {
@@ -373,6 +402,20 @@ export const services: Service[] = [
       {
         q: "Do you build e-commerce websites?",
         a: "Yes — we build custom e-commerce platforms with Razorpay, Stripe and UPI payment integration, product catalogues, inventory management, and order tracking. We recommend custom builds for businesses that need flexibility beyond what Shopify or WooCommerce provide.",
+      },
+    ],
+    deepDive: [
+      {
+        heading: "What a good web design company actually delivers",
+        body: "A lot of web design companies sell a template with your logo dropped in and call it custom design. A real web design company starts by understanding what your website needs to do, whether that is generating leads, selling products, or explaining a service clearly enough that a visitor picks up the phone. The design comes after that, not before it. When you compare web design companies in India, ask to see the page speed and mobile experience of their recent work, not just a homepage screenshot, because a good-looking site that loads slowly on a phone loses most of its visitors before they read a word.",
+      },
+      {
+        heading: "Why your website developers matter as much as your designers",
+        body: "A website can look right in the design file and still perform badly once it is built, if the developers writing the code do not understand how search engines read a page or how browsers handle images and scripts. Our website developers build every site with clean, semantic code from the start, so the site is fast, ranks properly, and is easy to update six months later without calling us for every small change.",
+      },
+      {
+        heading: "One website, built to last",
+        body: "We do not build a website and disappear. Every website we build comes with a content management system your team can actually use, clear documentation, and a maintenance option if you want us to keep it updated and secure. That is the difference between hiring a website designer for a one-off job and working with a company that treats your site as something that needs to keep working.",
       },
     ],
   },
@@ -401,6 +444,7 @@ export const services: Service[] = [
       "App-store submission expertise — we handle review cycles and compliance",
       "Post-launch support — monitoring, updates, and feature releases",
       "Performance and battery-efficiency testing across real devices",
+      "ISO 9001:2015 and ISO 27001:2022 certified — audited quality and data security on every build",
     ],
     cta: "Talk to our app team",
     ctaLink: "/contact",
@@ -409,6 +453,8 @@ export const services: Service[] = [
       "Android app development", "iOS app development", "React Native development",
       "Flutter development", "mobile app development company Pune",
       "hire app developers India",
+      "mobile app development company india", "app development company in mumbai", "android app development company india", "ios app development company india", "flutter app development company india", "react native development company india", "mobile app development cost in india", "hire app developers india", "cross platform app development company", "app development company for startups india", "healthcare app development company india", "fintech app development company india", "app maintenance services india",
+      "mobile app development company mumbai", "app development company near me", "custom mobile app development company", "ecommerce app development company", "on demand app development company", "hire mobile app developers mumbai", "best mobile app development company in india", "app development agency mumbai", "app developers", "best shopify development company", "hybrid app development",
     ],
     faq: [
       {
@@ -424,14 +470,28 @@ export const services: Service[] = [
         a: "Yes — we handle Google Play and Apple App Store submission, including metadata, screenshots, privacy policy, and review-cycle management. App Store review can take 1–3 days; Play Store typically 24–48 hours.",
       },
     ],
+    deepDive: [
+      {
+        heading: "What to look for in app developers",
+        body: "Good app developers do more than write code that compiles. They test on real devices, not just a simulator, because an app that runs fine on a simulator can behave differently on an older Android phone with less memory. They also plan for what happens after launch, since almost every app needs updates when Apple or Google change their rules, or when your business needs a new feature a few months in. When you are comparing app developers, ask how they handle app store review and what a typical update cycle looks like.",
+      },
+      {
+        heading: "Hybrid apps: when they make sense and when they do not",
+        body: "A hybrid app, built with a tool like React Native or Flutter, lets you write the app once and run it on both Android and iOS. This saves real money and time, and for most business apps, the performance difference compared to a fully native app is not something users will notice. Where hybrid apps fall short is heavy graphics work, like games, or apps that need to use the newest device features the day they are released. We help clients pick the right approach based on what the app actually needs to do, not just the cheaper option on paper.",
+      },
+      {
+        heading: "Shopify app and store development",
+        body: "Shopify covers most of what a standard online store needs, but growing stores usually hit a point where the default theme or a stock app cannot do what they need. That is where custom Shopify development comes in, whether that is a checkout customisation, a custom app that connects Shopify to a warehouse system, or a theme rebuild that loads faster and converts better than the stock templates. We work inside Shopify's platform rather than against it, so upgrades and new Shopify features keep working after we hand the store back to you.",
+      },
+    ],
   },
   {
     slug: "digital-marketing",
-    title: "Digital Marketing & SEO",
+    title: "Digital Marketing and SEO",
     shortTitle: "Digital Marketing",
     description: "SEO, PPC, social and content that grow visibility and turn reach into real leads.",
     icon: "TrendingUp",
-    metaTitle: "Digital Marketing & SEO Services in India — ITSolvez",
+    metaTitle: "Digital Marketing and SEO Services in India — ITSolvez",
     metaDescription:
       "SEO, PPC, social and content that grow visibility and generate real leads. Data-driven campaigns, measurable ROI. Get a free marketing audit.",
     h1: "Marketing that grows visibility — and turns reach into revenue.",
@@ -457,6 +517,7 @@ export const services: Service[] = [
       "digital marketing services India", "SEO services India", "digital marketing agency",
       "SEO company Pune", "Google Ads management India", "local SEO India",
       "digital marketing company India",
+      "digital marketing company mumbai", "seo services india", "seo company mumbai", "seo services for small business india", "local seo services india", "google ads management services india", "aeo services india", "ai search optimization services", "llm seo services", "content marketing services india", "whatsapp marketing services india", "seo packages india pricing", "digital marketing for small business india", "social media marketing agency", "social media marketing services", "content marketing services agency", "content marketing services", "best content marketing companies", "digital agency", "ppc services in india",
     ],
     faq: [
       {
@@ -470,6 +531,24 @@ export const services: Service[] = [
       {
         q: "What is AEO and why does it matter?",
         a: "Answer Engine Optimisation (AEO) is the practice of structuring content so AI assistants (ChatGPT, Gemini, Perplexity) cite your pages when users ask relevant questions. As AI-mediated search grows, being cited by an AI assistant is as valuable as ranking on page 1 of Google.",
+      },
+    ],
+    deepDive: [
+      {
+        heading: "What a social media marketing agency should actually do for you",
+        body: "Posting daily on Instagram and Facebook is not a social media strategy, it is an activity. A social media marketing agency worth paying for should be able to tell you which platform your actual customers use, what kind of posts get them to stop scrolling, and how that activity connects to leads or sales, not just likes and follower counts. We run social media as part of a wider plan tied to your business goals, and we report on what actually moved the needle each month, not a screenshot of engagement numbers.",
+      },
+      {
+        heading: "Content marketing that brings in the right visitors",
+        body: "Content marketing services often get judged on how many blog posts get published each month, which is the wrong measure. The real question is whether the content answers questions your future customers are actually searching for, and whether it brings in visitors who are close to making a buying decision, not just casual readers. We research the real questions people ask before choosing a company like yours, then build content around those questions, so the traffic that arrives is more likely to turn into an enquiry.",
+      },
+      {
+        heading: "PPC managed for leads, not clicks",
+        body: "Pay-per-click advertising can burn through a budget fast if nobody is watching which keywords actually bring in customers versus which ones just bring in clicks. Our PPC services are managed around cost per lead, and we review campaigns weekly rather than setting them up once and checking back at the end of the month. If a keyword is expensive and not converting, we cut it. If something is working, we put more budget behind it.",
+      },
+      {
+        heading: "One digital agency, one strategy",
+        body: "A lot of businesses end up with SEO handled by one agency, social media by a freelancer, and paid ads by a different agency, and none of them talk to each other. Running everything under one digital agency means your SEO, content, social and paid campaigns are all pulling in the same direction instead of competing with each other or quietly duplicating work.",
       },
     ],
   },
@@ -504,6 +583,7 @@ export const services: Service[] = [
     keywords: [
       "IT staff augmentation India", "hire developers India", "dedicated development team India",
       "remote IT professionals", "outsource IT team India", "IT staff augmentation Pune",
+      "it staff augmentation services india", "staff augmentation company india", "hire dedicated developers india", "hire react developers india", "hire nodejs developers india", "hire flutter developers india", "hire python developers india", "hire full stack developers india", "offshore development team india", "dedicated development team services", "it outsourcing company india", "remote developers for hire india", "contract staffing it company india", "it manpower supply company",
     ],
     faq: [
       {
@@ -522,16 +602,16 @@ export const services: Service[] = [
   },
   {
     slug: "it-infrastructure-management",
-    title: "IT Infrastructure Management",
+    title: "IT Infrastructure Management and Server Maintenance",
     shortTitle: "Infrastructure",
-    description: "End-to-end management of servers, networks, storage and cloud infrastructure.",
+    description: "Server maintenance, IT AMC and end-to-end management of networks, storage and cloud infrastructure.",
     icon: "Server",
-    metaTitle: "IT Infrastructure Management Services India — ITSolvez",
+    metaTitle: "Server Maintenance and IT Infrastructure Services India | ITSolvez",
     metaDescription:
-      "End-to-end management of on-premise and cloud infrastructure. 24/7 monitoring, proactive maintenance, and SLA-backed uptime.",
-    h1: "Infrastructure that runs reliably — and never surprises you.",
+      "Server maintenance, IT AMC and end-to-end management of on-premise and cloud infrastructure. 24/7 monitoring, proactive maintenance, and SLA-backed uptime.",
+    h1: "Server maintenance and infrastructure that runs reliably — and never surprises you.",
     intro:
-      "Your IT infrastructure is the foundation everything else runs on. When it's managed proactively — monitored continuously, patched promptly, sized correctly — it's invisible to your business in the best possible way. When it's neglected, everything stops.\n\nITSolvez manages on-premise, cloud and hybrid infrastructure end-to-end: servers, networks, storage, backup, and the connections between them. We treat your infrastructure as a living system — continuously tuned for performance, security and cost.",
+      "Your servers and IT infrastructure are the foundation everything else runs on. When they're maintained proactively — monitored continuously, patched promptly, sized correctly — they're invisible to your business in the best possible way. When they're neglected, everything stops.\n\nITSolvez provides server maintenance, IT AMC (annual maintenance contracts) and end-to-end management of on-premise, cloud and hybrid infrastructure: servers, networks, storage, backup, and the connections between them. We treat your infrastructure as a living system — continuously tuned for performance, security and cost.",
     included: [
       "Server management — physical and virtual, Windows Server and Linux",
       "Network management — LAN/WAN, firewalls, VPNs, SD-WAN",
@@ -545,6 +625,7 @@ export const services: Service[] = [
       "Proactive patching and maintenance — your infrastructure is always current",
       "CapEx to OpEx — predictable monthly cost for infrastructure management",
       "Expertise across on-premise, cloud and hybrid — one team, one point of contact",
+      "ISO 20000-1:2018 and ISO 27001:2022 certified operations — audited service management and security",
     ],
     cta: "Get an infrastructure review",
     ctaLink: "/contact",
@@ -552,6 +633,10 @@ export const services: Service[] = [
       "IT infrastructure management India", "server management India",
       "network management services", "cloud infrastructure management",
       "managed infrastructure services Pune",
+      "it infrastructure management services", "server management services india", "network management services mumbai", "noc services india",
+      "server maintenance company", "server maintenance services near me", "server maintenance services mumbai", "server amc", "computer amc services", "it amc services", "annual maintenance contract for servers",
+      "server monitoring services", "server support company", "windows server maintenance", "linux server administration services", "data center management services",
+      "server backup and maintenance services", "remote server management", "network setup and maintenance company", "it infrastructure services company india",
     ],
     faq: [
       {
@@ -605,6 +690,54 @@ export const services: Service[] = [
       {
         q: "How do you handle data security during integration?",
         a: "All data in transit is encrypted (TLS 1.3). We use OAuth 2.0 and API key management for authentication. Access is role-based and logged. We follow OWASP API Security Top 10 guidelines on every integration we build.",
+      },
+    ],
+  },
+  {
+    slug: "data-analytics",
+    title: "Data Analytics and Business Intelligence",
+    shortTitle: "Data and Analytics",
+    description: "Turn raw data into actionable intelligence with warehousing, BI dashboards, and predictive analytics.",
+    icon: "BarChart3",
+    metaTitle: "Data Analytics and BI Services India | ITSolvez",
+    metaDescription:
+      "Custom data warehousing, BI dashboards, predictive analytics and reporting solutions for Indian businesses. Turn raw data into decisions that drive growth.",
+    h1: "Your data is telling you something. We help you hear it.",
+    intro:
+      "Most businesses are sitting on vast amounts of data — sales records, customer behaviour, operational metrics, financial transactions — but lack the tools to extract meaning from it. Gut-feel decisions get made when the answers were in the data all along.\n\nITSolvez designs and builds custom data infrastructure: from pipelines that collect and clean your data, to dashboards that surface the right metrics, to predictive models that tell you what's likely to happen next. We work with your existing systems — ERP, CRM, e-commerce, mobile apps — and turn their data into a strategic asset.",
+    included: [
+      "Data warehouse design and build — centralised, clean, query-ready data",
+      "ETL/ELT pipelines — automated collection, transformation and loading",
+      "BI dashboards — real-time reports in Power BI, Metabase or custom-built",
+      "Predictive analytics and ML models — forecasting, churn, demand, anomaly detection",
+      "Data quality and governance — validation rules, lineage tracking, access control",
+      "Self-serve reporting — let your team answer their own questions without IT",
+    ],
+    benefits: [
+      "Decisions backed by data — not instinct or incomplete spreadsheets",
+      "Single source of truth — all systems feeding one reliable data layer",
+      "Faster reporting — automated pipelines replace manual weekly exports",
+      "Competitive advantage — spot trends before competitors do",
+    ],
+    cta: "Discuss your data challenges",
+    ctaLink: "/contact",
+    keywords: [
+      "data analytics India", "business intelligence India", "BI dashboard India",
+      "data warehouse India", "predictive analytics India", "Power BI India",
+      "data engineering India", "reporting solutions India",
+    ],
+    faq: [
+      {
+        q: "Do we need a lot of existing data to get started?",
+        a: "Not necessarily. We start by auditing what you already have — databases, spreadsheets, CRM exports, app logs. Even businesses with a year of structured data can build meaningful dashboards and early-stage predictive models. The models improve as more data accumulates.",
+      },
+      {
+        q: "What BI tools do you work with?",
+        a: "We work with Power BI, Metabase, Grafana and custom React-based dashboards depending on your team's preferences and budget. We're tool-agnostic — we recommend what fits your use case, not what we're commercially tied to.",
+      },
+      {
+        q: "Can you connect to our existing ERP or CRM?",
+        a: "Yes. We've built data pipelines connecting SAP, Odoo, Salesforce, HubSpot, Zoho, Tally, WooCommerce, Razorpay, and custom-built platforms. If it has an API or a database we can reach, we can pull data from it.",
       },
     ],
   },

@@ -1,0 +1,3 @@
+# itsolvez.com does not sell programmatic ad inventory.
+# This file exists to prevent unauthorized inventory claims.
+contact=info@itsolvez.com

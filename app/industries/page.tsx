@@ -1,23 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Landmark, Factory, HeartPulse, GraduationCap, Truck, Building2, BarChart2 } from "lucide-react";
-import { industries } from "@/lib/data/industries";
+import { ArrowRight, Landmark, Factory, HeartPulse, GraduationCap, Truck, Building2, BarChart2, Zap, ShoppingBag, Plane } from "lucide-react";
+import { industries as fallbackIndustries } from "@/lib/data/industries";
 import PageHero from "@/components/layout/PageHero";
+import { InquirySection } from "@/components/InquiryForm";
+import { JsonLd, buildMetadata, breadcrumbSchema } from "@/components/SEO";
+import { getIndustries, getPageSEO } from "@/lib/wagtail";
 
-export const metadata: Metadata = {
-  title: "Industries We Serve — Banking, Manufacturing, Healthcare & More",
-  description:
-    "ITSolvez delivers industry-specific IT services for banking, capital markets, manufacturing, healthcare, higher education, logistics and enterprise technology.",
-  alternates: { canonical: "https://itsolvez.com/industries" },
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSEO("industries");
+  return buildMetadata({
+    title: seo?.meta_title || "Industries We Serve — IT Solutions by Sector | ITSolvez",
+    description: seo?.meta_description || "Custom software for healthcare, retail, education, travel, finance, logistics and more — industry-specific ERP, CRM and mobile app solutions.",
+    keywords: seo?.meta_keywords || ["software development industries", "healthcare software", "retail ERP", "education management software", "travel software", "fintech software"],
+    slug: "industries",
+    ogImage: seo?.og_image || "/og-image.png",
+  });
+}
 
 const iconMap: Record<string, React.ElementType> = {
-  Landmark, Factory, HeartPulse, GraduationCap, Truck, Building2, BarChart2,
+  Landmark, Factory, HeartPulse, GraduationCap, Truck, Building2, BarChart2, ShoppingBag, Plane,
 };
 
-export default function IndustriesPage() {
+export default async function IndustriesPage() {
+  let industryList: { slug: string; title: string; icon?: string; description?: string; tagline?: string }[] = fallbackIndustries.map(i => ({
+    slug: i.slug, title: i.title, icon: i.icon, description: i.description,
+  }));
+
+  try {
+    const data = await getIndustries();
+    if (data?.length) {
+      industryList = data.map((i) => ({
+        slug: i.slug, title: i.title, icon: i.icon, description: i.tagline || i.overview?.slice(0, 160),
+      }));
+    }
+  } catch {}
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "https://itsolvez.com/" },
+        { name: "Industries", url: "https://itsolvez.com/industries/" },
+      ])} />
+
       <PageHero
         tag="Industries We Serve"
         title="IT built for"
@@ -31,14 +58,14 @@ export default function IndustriesPage() {
       <section className="section-py bg-[#F4F7FC]">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => {
-              const Icon = iconMap[industry.icon] ?? Building2;
+            {industryList.map((industry) => {
+              const Icon = iconMap[industry.icon ?? ""] ?? Zap;
               return (
                 <Link
                   key={industry.slug}
                   href={`/industries/${industry.slug}`}
                   className="card-service group flex flex-col bg-white"
-                >
+                 prefetch={false}>
                   <div className="service-icon mb-4">
                     <Icon size={22} />
                   </div>
@@ -49,7 +76,7 @@ export default function IndustriesPage() {
                     {industry.description}
                   </p>
                   <div className="flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#1878F0]">
-                    Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    Our approach <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               );
@@ -57,6 +84,23 @@ export default function IndustriesPage() {
           </div>
         </div>
       </section>
+
+      <section className="section-py bg-[#060B24] grid-bg">
+        <div className="container-custom text-center">
+          <h2 className="font-display text-3xl lg:text-4xl font-black text-white mb-4">
+            Don&apos;t see your industry?
+          </h2>
+          <p className="text-[#EAF0FA]/60 max-w-xl mx-auto mb-8">
+            We work across all verticals. If your sector isn&apos;t listed, we&apos;ve almost certainly served a business like yours.
+          </p>
+          <Link href="/contact" className="btn-primary" prefetch={false}>
+            Talk to an expert <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      <InquirySection source="Page: Industries Index" />
+
     </>
   );
 }

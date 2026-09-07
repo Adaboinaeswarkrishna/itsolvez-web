@@ -1,120 +1,53 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, MapPin, Clock, Briefcase } from "lucide-react";
-import { siteConfig } from "@/lib/data/site";
+import { ArrowRight, MapPin, Briefcase } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import { InquirySection } from "@/components/InquiryForm";
+import { JsonLd, buildMetadata, jobSchema } from "@/components/SEO";
+import { getJobOpenings, getPageSEO } from "@/lib/wagtail";
+import { slugifyJobTitle } from "@/lib/careersUtils";
+import { FALLBACK_ROLES } from "@/lib/data/careers-fallback";
 
-export const metadata: Metadata = {
-  title: "Careers at ITSolvez — Join Our IT Team in Pune",
-  description:
-    "Join ITSolvez Pvt Ltd — a growing IT services company in Pune. Open roles in managed IT, cloud engineering, cybersecurity, software development and digital marketing.",
-  alternates: { canonical: "https://itsolvez.com/careers" },
-};
+function firstParagraph(html: string): string {
+  const match = html.match(/<p[^>]*>(.*?)<\/p>/i);
+  return (match ? match[1] : html).replace(/<[^>]+>/g, "");
+}
 
-const openRoles = [
-  {
-    title: "Cloud Engineer (AWS / Azure)",
-    type: "Full-time",
-    location: "Pune / Remote",
-    department: "Cloud & Infrastructure",
-    description:
-      "Design, deploy and manage cloud environments for our managed-IT clients. You'll be responsible for migrations, optimisation and 24/7 monitoring on AWS and Azure.",
-    requirements: [
-      "2+ years cloud engineering experience (AWS or Azure)",
-      "AWS Solutions Architect or Azure Administrator certification preferred",
-      "Experience with Terraform or Pulumi for IaC",
-      "Strong understanding of networking, security and cost optimisation",
-    ],
-  },
-  {
-    title: "Senior Full-Stack Developer (Next.js / Node)",
-    type: "Full-time",
-    location: "Pune / Hybrid",
-    department: "Software Development",
-    description:
-      "Build production-grade web applications, SaaS platforms and APIs for clients across India and globally. You&apos;ll own features end-to-end, from architecture to deployment.",
-    requirements: [
-      "4+ years full-stack development experience",
-      "Expert in React / Next.js and Node.js",
-      "PostgreSQL or MongoDB experience",
-      "Experience deploying on AWS, Vercel or similar",
-    ],
-  },
-  {
-    title: "Cybersecurity Analyst (SOC / MDR)",
-    type: "Full-time",
-    location: "Pune",
-    department: "Cybersecurity",
-    description:
-      "Monitor client environments for threats, investigate alerts and respond to incidents as part of our 24/7 MDR service. SIEM experience essential.",
-    requirements: [
-      "2+ years SOC or MSSP experience",
-      "SIEM platform experience (Splunk, Sentinel, or similar)",
-      "CompTIA Security+ or equivalent certification",
-      "Strong understanding of MITRE ATT&CK framework",
-    ],
-  },
-  {
-    title: "IT Support Engineer",
-    type: "Full-time",
-    location: "Pune",
-    department: "Managed IT",
-    description:
-      "Provide remote and on-site IT support to managed-IT clients. You&apos;ll own ticket resolution, user onboarding, and proactive maintenance tasks.",
-    requirements: [
-      "1+ years IT support experience",
-      "Microsoft 365 and Windows Server administration",
-      "Strong troubleshooting skills and customer communication",
-      "CompTIA A+ or equivalent preferred",
-    ],
-  },
-  {
-    title: "Digital Marketing Specialist (SEO / PPC)",
-    type: "Full-time",
-    location: "Pune / Remote",
-    department: "Digital Marketing",
-    description:
-      "Manage SEO, Google Ads and content campaigns for B2B clients. AEO (Answer Engine Optimisation) experience a strong plus.",
-    requirements: [
-      "2+ years digital marketing experience",
-      "Google Ads and Google Analytics 4 certified",
-      "Technical SEO knowledge (Core Web Vitals, structured data)",
-      "B2B or technology sector experience preferred",
-    ],
-  },
-];
+export const revalidate = 60;
 
-const jobPostingSchemas = openRoles.map((role, idx) => ({
-  "@context": "https://schema.org",
-  "@type": "JobPosting",
-  title: role.title,
-  description: role.description,
-  hiringOrganization: {
-    "@type": "Organization",
-    name: "ITSolvez Pvt Ltd",
-    sameAs: "https://itsolvez.com",
-  },
-  jobLocation: {
-    "@type": "Place",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      addressCountry: "IN",
-    },
-  },
-  employmentType: role.type.toUpperCase().replace("-", "_"),
-  datePosted: "2026-06-01",
-  validThrough: "2026-09-01",
-  identifier: { "@type": "PropertyValue", name: "ITSolvez", value: `ITSOLVEZ-${idx + 1}` },
-}));
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSEO("careers");
+  return buildMetadata({
+    title: seo?.meta_title || "Careers at ITSolvez — Developer Jobs Mumbai and Remote",
+    description: seo?.meta_description || "Join ITSolvez — open roles for software developers, mobile app developers, UI/UX designers and more. Mumbai HQ + remote opportunities.",
+    keywords: seo?.meta_keywords || ["software developer jobs Mumbai", "mobile app developer jobs", "IT careers India", "tech careers Mumbai"],
+    slug: "careers",
+    ogImage: seo?.og_image || "/og-image.png",
+  });
+}
 
-export default function CareersPage() {
+const locationLabel: Record<string, string> = { onsite: "On-site", remote: "Remote", hybrid: "Hybrid" };
+const employmentLabel: Record<string, string> = { FULL_TIME: "Full-time", PART_TIME: "Part-time", CONTRACT: "Contract", INTERNSHIP: "Internship" };
+
+export default async function CareersPage() {
+  let jobs = FALLBACK_ROLES;
+  try {
+    const data = await getJobOpenings();
+    if (data.results?.length) jobs = data.results;
+  } catch {}
+
   return (
     <>
-      {jobPostingSchemas.map((schema, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      ))}
+      <JsonLd data={jobs.map((j) => {
+        const m = j.salary_range?.match(/(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*LPA/i);
+        return jobSchema({
+          title: j.title, description: j.description, location: j.location,
+          employment_type: j.employment_type, posted_date: j.posted_date,
+          location_type: j.location_type,
+          salary_min_lpa: m ? Number(m[1]) : undefined,
+          salary_max_lpa: m ? Number(m[2]) : undefined,
+        });
+      })} />
 
       <PageHero
         tag="Careers at ITSolvez"
@@ -125,7 +58,6 @@ export default function CareersPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Careers" }]}
       />
 
-      {/* Culture */}
       <section className="section-py bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
@@ -146,58 +78,50 @@ export default function CareersPage() {
             <h2 className="section-heading">Current openings</h2>
           </div>
 
-          <div className="space-y-5 max-w-4xl mx-auto">
-            {openRoles.map((role) => (
-              <div key={role.title} className="card-service bg-white group">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#1878F0] bg-[#1878F0]/8 px-2.5 py-1 rounded-full">
-                        {role.department}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-xs text-[#5A6380] bg-[#F4F7FC] px-2.5 py-1 rounded-full">
-                        <Briefcase size={10} /> {role.type}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-xs text-[#5A6380] bg-[#F4F7FC] px-2.5 py-1 rounded-full">
-                        <MapPin size={10} /> {role.location}
-                      </span>
+          {jobs.length === 0 ? (
+            <div className="text-center py-16 text-[#5A6380]">
+              <p className="text-lg font-medium mb-2">No open roles right now</p>
+              <p className="text-sm mb-6">We&apos;re always interested in talented people — send us your CV.</p>
+              <Link href="/contact" className="btn-primary" prefetch={false}>Send CV <ArrowRight size={15} /></Link>
+            </div>
+          ) : (
+            <div className="space-y-5 max-w-4xl mx-auto">
+              {jobs.map((job) => {
+                const slug = slugifyJobTitle(job.title);
+                return (
+                  <div key={job.id} className="card-service bg-white group">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      <Link href={`/careers/${slug}`} className="flex-1" prefetch={false}>
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          <span className="text-xs font-mono font-semibold text-[#1878F0] bg-[#1878F0]/8 px-2.5 py-1 rounded-full">{job.department}</span>
+                          <span className="text-xs text-[#5A6380] bg-[#F4F7FC] px-2.5 py-1 rounded-full flex items-center gap-1"><Briefcase size={10} /> {employmentLabel[job.employment_type] ?? job.employment_type}</span>
+                          <span className="text-xs text-[#5A6380] bg-[#F4F7FC] px-2.5 py-1 rounded-full flex items-center gap-1"><MapPin size={10} /> {job.location} · {locationLabel[job.location_type] ?? job.location_type}</span>
+                          {job.experience && <span className="text-xs text-[#5A6380] bg-[#F4F7FC] px-2.5 py-1 rounded-full">{job.experience}</span>}
+                        </div>
+                        <h3 className="font-semibold text-lg text-[#0B1233] mb-2 group-hover:text-[#1878F0] transition-colors">{job.title}</h3>
+                        <p className="text-sm text-[#5A6380] leading-relaxed">{firstParagraph(job.description)}</p>
+                      </Link>
+                      <div className="flex-shrink-0">
+                        <Link href={`/careers/${slug}`} className="btn-primary text-sm" prefetch={false}>
+                          View and Apply <ArrowRight size={14} />
+                        </Link>
+                      </div>
                     </div>
-                    <h3 className="font-semibold text-lg text-[#0B1233] mb-2 group-hover:text-[#1878F0] transition-colors">
-                      {role.title}
-                    </h3>
-                    <p className="text-sm text-[#5A6380] leading-relaxed mb-4">{role.description}</p>
-                    <ul className="space-y-1.5">
-                      {role.requirements.map((req) => (
-                        <li key={req} className="text-xs text-[#5A6380] flex items-start gap-2">
-                          <span className="text-[#1878F0] mt-0.5">·</span>
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                  <div className="flex-shrink-0">
-                    <Link
-                      href={`/contact?role=${encodeURIComponent(role.title)}`}
-                      className="btn-primary text-sm"
-                    >
-                      Apply <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          )}
 
           <div className="text-center mt-10">
-            <p className="text-sm text-[#5A6380] mb-4">
-              Don&apos;t see your role? We&apos;re always interested in talented people.
-            </p>
-            <Link href="/contact" className="btn-secondary">
-              Send us your CV <ArrowRight size={15} />
-            </Link>
+            <p className="text-sm text-[#5A6380] mb-4">Don&apos;t see your role? We&apos;re always interested in talented people.</p>
+            <Link href="/contact" className="btn-secondary" prefetch={false}>Send us your CV <ArrowRight size={15} /></Link>
           </div>
         </div>
       </section>
+
+      <InquirySection source="Page: Careers" />
+
     </>
   );
 }

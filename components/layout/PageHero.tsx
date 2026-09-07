@@ -38,10 +38,11 @@ export default function PageHero({
       <div className="absolute inset-0 z-0">
         <Image
           src={bgImage}
-          alt=""
+          alt={`${title} — ITSolvez`}
           fill
           className="object-cover object-center"
           priority
+          quality={60}
           sizes="100vw"
         />
       </div>
@@ -87,7 +88,7 @@ export default function PageHero({
                   <Link
                     href={crumb.href}
                     className="text-white/45 hover:text-white/70 transition-colors"
-                  >
+                   prefetch={false}>
                     {crumb.label}
                   </Link>
                 ) : (

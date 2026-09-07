@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const WAGTAIL_API = process.env.WAGTAIL_API_URL ?? process.env.NEXT_PUBLIC_WAGTAIL_API_URL ?? "http://localhost:8000";
+
 interface ContactPayload {
   name: string;
   email: string;
@@ -28,26 +30,27 @@ export async function POST(req: NextRequest) {
 
     const { name, email, phone, company, service, message } = body;
 
-    // Log to console (replace with DB insert + email/CRM webhook)
-    console.log("[Contact Form Submission]", {
-      name, email, phone, company, service, message,
-      timestamp: new Date().toISOString(),
-      ip: req.headers.get("x-forwarded-for") ?? "unknown",
+    // Forward to Wagtail leads API
+    const wagtailRes = await fetch(`${WAGTAIL_API}/api/leads/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        lead_type: "contact",
+        name,
+        email,
+        phone: phone ?? "",
+        company: company ?? "",
+        service_interest: service ?? "",
+        message,
+      }),
     });
 
-    // TODO: Insert into Supabase leads table
-    // const { error } = await supabase.from("leads").insert({...});
-
-    // TODO: Send via Resend
-    // await resend.emails.send({
-    //   from: "noreply@itsolvez.com",
-    //   to: "hello@itsolvez.com",
-    //   subject: `New enquiry from ${name}`,
-    //   html: `<p>...</p>`,
-    // });
-
-    // TODO: WhatsApp Business API notification
-    // await sendWhatsAppNotification({ name, email, service, message });
+    if (!wagtailRes.ok) {
+      // Log and still return success to user (don't expose backend errors)
+      console.error("[Contact API] Wagtail lead save failed:", wagtailRes.status, await wagtailRes.text());
+    } else {
+      console.log("[Contact API] Lead saved to Wagtail:", { name, email, service });
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
