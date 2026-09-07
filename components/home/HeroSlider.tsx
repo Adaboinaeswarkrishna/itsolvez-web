@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, Phone, CheckCircle2, Users, Shield, Award, Globe, Zap, TrendingUp, Server, ChevronLeft, ChevronRight } from "lucide-react";
 import { telHref } from "@/lib/validation";
 import VortexField from "@/components/motion/VortexField";
-import VaporHeadline from "@/components/motion/VaporHeadline";
 
 export interface HeroSlide {
   image_url: string;
@@ -85,16 +84,12 @@ export default function HeroSlider({ slides, stats }: { slides: HeroSlide[]; sta
             {/* Tag */}
             <p className="text-white/38 text-xs font-mono tracking-widest uppercase mb-6">{slide.tag}</p>
 
-            {/* Headline — vapour particle dissolve/reform on slide change */}
-            <VaporHeadline
-              headline={slide.headline}
-              accent={slide.accent}
-              className="mb-7"
-              fontClassName="font-display font-black leading-[1.02] tracking-tight"
-              fontStyle={{ fontSize: "clamp(2.6rem, 5.5vw, 4.5rem)" }}
-              headlineColor="#FFFFFF"
-              accentColor="#F04830"
-            />
+            {/* Headline — plain solid text (the vapour dot effect made it hard to read) */}
+            <h1 className="font-display font-black leading-[1.02] tracking-tight text-white mb-7" style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.5rem)" }}>
+              {slide.headline}
+              <br />
+              <span className="text-[#F04830]" style={{ textShadow: "0 0 40px rgba(240,72,48,0.35)" }}>{slide.accent}</span>
+            </h1>
 
             {/* Subtitle */}
             <p className="text-lg text-white/65 max-w-lg leading-relaxed mb-10">{slide.subtitle}</p>
