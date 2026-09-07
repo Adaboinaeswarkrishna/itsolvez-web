@@ -303,13 +303,15 @@ body {
 }
 
 /* Anything using the new motion primitives (Reveal, ParticleField, DottedGlobe,
-   float-slow, shimmer-sweep, aurora-field) backs off entirely for visitors
-   who've asked for reduced motion — this is a blanket safety net on top of
-   the JS-level checks already inside each component. */
+   WorldMapDots, float-slow, shimmer-sweep, aurora-field, animate-ping) backs
+   off entirely for visitors who've asked for reduced motion — this is a
+   blanket safety net on top of the JS-level checks already inside each
+   component. */
 @media (prefers-reduced-motion: reduce) {
   .float-slow,
   .shimmer-sweep::after,
-  .aurora-blob {
+  .aurora-blob,
+  .animate-ping {
     animation: none !important;
   }
 }

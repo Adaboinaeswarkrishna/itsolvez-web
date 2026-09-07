@@ -13,7 +13,7 @@ import { JsonLd, buildMetadata, orgSchema } from "@/components/SEO";
 import { API_BASE, fixMediaUrl, getPageSEO } from "@/lib/wagtail";
 import Reveal from "@/components/motion/Reveal";
 import ParticleField from "@/components/motion/ParticleField";
-import DottedGlobe from "@/components/motion/DottedGlobe";
+import WorldMapDots from "@/components/motion/WorldMapDots";
 import { CAPABILITIES } from "@/lib/data/ai-capabilities";
 import { siteConfig } from "@/lib/data/site";
 
@@ -702,7 +702,7 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={120}>
               <div className="flex justify-center">
-                <DottedGlobe size={420} className="max-w-full h-auto" />
+                <WorldMapDots className="w-full max-w-[560px]" />
               </div>
             </Reveal>
           </div>
