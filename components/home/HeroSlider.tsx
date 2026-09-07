@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, CheckCircle2, Users, Shield, Award, Globe, Zap, TrendingUp, Server, ChevronLeft, ChevronRight } from "lucide-react";
-import { fixMediaUrl } from "@/lib/wagtail";
 import { telHref } from "@/lib/validation";
+import VortexField from "@/components/motion/VortexField";
 
 export interface HeroSlide {
   image_url: string;
@@ -62,17 +61,16 @@ export default function HeroSlider({ slides, stats }: { slides: HeroSlide[]; sta
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background images */}
-      {slides.map((s, i) => (
-        <div key={i} className="absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out" style={{ opacity: i === active ? 1 : 0 }}>
-          <Image src={fixMediaUrl(s.image_url)} alt={s.tag || "ITSolvez IT services"} fill className="object-cover object-center" priority={i === 0} sizes="100vw" quality={60} />
-        </div>
-      ))}
+      {/* Dark base — the vortex and text sit on this instead of a photo */}
+      <div className="absolute inset-0 z-0" style={{ backgroundColor: "#060B24" }} />
+
+      {/* AI-vortex wireframe background — persistent across slides; only the text changes */}
+      <VortexField className="absolute inset-0 z-[1]" apexX={0.7} apexY={0.42} color="96, 165, 250" accentColor="240, 72, 48" />
 
       {/* Overlays */}
-      <div className="absolute inset-0 z-[1]" style={{ background: "linear-gradient(105deg, rgba(4,9,26,0.97) 0%, rgba(4,9,26,0.93) 38%, rgba(4,9,26,0.72) 58%, rgba(4,9,26,0.35) 78%, rgba(4,9,26,0.15) 100%)" }} />
-      <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 70% at 5% 80%, rgba(24,120,240,0.20) 0%, transparent 65%)" }} />
-      <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 0% 0%, rgba(240,72,48,0.12) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(105deg, rgba(4,9,26,0.95) 0%, rgba(4,9,26,0.88) 38%, rgba(4,9,26,0.62) 58%, rgba(4,9,26,0.28) 78%, rgba(4,9,26,0.10) 100%)" }} />
+      <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 70% at 5% 80%, rgba(24,120,240,0.20) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 0% 0%, rgba(240,72,48,0.12) 0%, transparent 60%)" }} />
 
       <div className="container-custom relative z-10 pt-32 pb-24 lg:pt-36 lg:pb-28 w-full">
         <div className="grid lg:grid-cols-[58%_42%] gap-12 xl:gap-20 items-center">

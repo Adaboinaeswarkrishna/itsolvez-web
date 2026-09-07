@@ -108,5 +108,8 @@ export default function ParticleField({
     };
   }, [density, color, opacity]);
 
-  return <canvas ref={canvasRef} className={className} aria-hidden="true" />;
+  // w-full h-full first so `inset-0` positioning classes in `className` still
+  // win the cascade if they ever conflict — canvas is a replaced element and
+  // won't stretch to fill an absolutely positioned parent on inset alone.
+  return <canvas ref={canvasRef} className={`w-full h-full ${className}`} aria-hidden="true" />;
 }
