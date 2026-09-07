@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone, CheckCircle2, Users, Shield, Award, Globe, Zap, TrendingUp, Server, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { telHref } from "@/lib/validation";
-import VortexField from "@/components/motion/VortexField";
+import AuroraField from "@/components/motion/AuroraField";
+import ParticleField from "@/components/motion/ParticleField";
+import { HERO_COLLAGE } from "@/lib/data/hero-collage";
 
 export interface HeroSlide {
   image_url: string;
@@ -26,18 +29,7 @@ export interface HeroStat {
   color: "emerald" | "blue" | "red" | "purple";
 }
 
-const ICON_MAP: Record<string, React.ElementType> = {
-  Users, Shield, Award, Globe, Zap, TrendingUp, Server, CheckCircle: CheckCircle2,
-};
-
-const COLOR_MAP = {
-  emerald: { bg: "bg-emerald-500/20", text: "text-emerald-400", bar: "bg-emerald-400/40" },
-  blue:    { bg: "bg-[#1878F0]/25",   text: "text-[#60A5FA]",   bar: "bg-[#1878F0]/50"  },
-  red:     { bg: "bg-[#F04830]/20",   text: "text-[#FB8070]",   bar: "bg-[#F04830]/50"  },
-  purple:  { bg: "bg-purple-500/20",  text: "text-purple-400",  bar: "bg-purple-400/40" },
-};
-
-export default function HeroSlider({ slides, stats }: { slides: HeroSlide[]; stats: HeroStat[] }) {
+export default function HeroSlider({ slides }: { slides: HeroSlide[]; stats: HeroStat[] }) {
   const [active, setActive] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -61,11 +53,14 @@ export default function HeroSlider({ slides, stats }: { slides: HeroSlide[]; sta
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Dark base — the vortex and text sit on this instead of a photo */}
+      {/* Dark base — the aurora, mesh and text all sit on this */}
       <div className="absolute inset-0 z-0" style={{ backgroundColor: "#060B24" }} />
 
-      {/* AI-vortex wireframe background — persistent across slides; only the text changes */}
-      <VortexField className="absolute inset-0 z-[1]" apexX={0.7} apexY={0.42} color="96, 165, 250" accentColor="240, 72, 48" />
+      {/* Premium aurora backdrop — calm, drifting colour glow instead of a
+          busy focal animation, so it supports the image collage on the
+          right rather than competing with it. */}
+      <AuroraField className="absolute inset-0 z-[1]" />
+      <ParticleField className="absolute inset-0 z-[1]" density={14} color="148, 163, 220" opacity={0.16} />
 
       {/* Overlays */}
       <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(105deg, rgba(4,9,26,0.95) 0%, rgba(4,9,26,0.88) 38%, rgba(4,9,26,0.62) 58%, rgba(4,9,26,0.28) 78%, rgba(4,9,26,0.10) 100%)" }} />
@@ -135,24 +130,26 @@ export default function HeroSlider({ slides, stats }: { slides: HeroSlide[]; sta
             </div>
           </div>
 
-          {/* Right: stat cards */}
+          {/* Right: real work, real results — a small image collage instead
+              of plain stat cards. Same real case-study images/outcomes used
+              elsewhere on the homepage, given a proper visual home here. */}
           <div className="hidden lg:flex flex-col gap-4 items-end">
-            {stats.map((stat) => {
-              const Icon = ICON_MAP[stat.icon] ?? Users;
-              const clr = COLOR_MAP[stat.color] ?? COLOR_MAP.blue;
-              return (
-                <div key={stat.label} className="w-64 bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl p-6 shadow-2xl">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`w-10 h-10 rounded-xl ${clr.bg} flex items-center justify-center flex-shrink-0`}>
-                      <Icon size={19} className={clr.text} />
-                    </div>
-                    <span className="text-white/55 text-sm font-medium">{stat.label}</span>
+            {HERO_COLLAGE.map((item, i) => (
+              <div
+                key={item.image}
+                className="float-slow relative w-72 h-36 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10"
+                style={{ animationDelay: `${i * 0.7}s` }}
+              >
+                <Image src={item.image} alt={item.alt} fill className="object-cover" sizes="288px" quality={65} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,11,36,0) 42%, rgba(6,11,36,0.90) 100%)" }} />
+                {item.tag && item.result && (
+                  <div className="absolute bottom-3.5 left-4 right-4">
+                    <span className="block text-[10px] font-semibold tracking-widest uppercase text-white/55 mb-1">{item.tag}</span>
+                    <div className="font-display font-bold text-white text-base leading-tight">{item.result}</div>
                   </div>
-                  <div className="font-display text-4xl font-black text-white leading-none">{stat.value}</div>
-                  <div className={`h-0.5 w-12 ${clr.bar} rounded-full mt-3`} />
-                </div>
-              );
-            })}
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
