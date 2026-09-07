@@ -233,6 +233,40 @@ body {
   50% { opacity: 0.4; }
 }
 
+/* Subtle float used on decorative cards/icons in the new animated sections */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* CTA shimmer sweep — a single soft light pass, not a looping gimmick */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+.shimmer-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+  animation: shimmer-sweep 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Anything using the new motion primitives (Reveal, ParticleField, DottedGlobe,
+   float-slow, shimmer-sweep) backs off entirely for visitors who've asked for
+   reduced motion — this is a blanket safety net on top of the JS-level checks
+   already inside each component. */
+@media (prefers-reduced-motion: reduce) {
+  .float-slow,
+  .shimmer-sweep::after {
+    animation: none !important;
+  }
+}
+
 /* Data readout style */
 .data-readout {
   font-family: var(--font-jetbrains), monospace;

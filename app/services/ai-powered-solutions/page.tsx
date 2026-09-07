@@ -4,65 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ArrowRight, Bot, Zap, BarChart3, FileSearch, Eye, Workflow,
-  CheckCircle2, ChevronDown, MessageSquare, Database, Cpu,
+  ArrowRight, Bot, Zap, BarChart3,
+  CheckCircle2, ChevronDown, Database, Cpu,
   Building2, ShoppingCart, HeartPulse, Truck, GraduationCap, Landmark,
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { InquirySection } from "@/components/InquiryForm";
 import { nameError, emailError, phoneError, requiredError, sanitizePhoneInput } from "@/lib/validation";
-
-/* ─── What we build ─── */
-const CAPABILITIES = [
-  {
-    icon: Bot,
-    title: "AI Chatbots and Virtual Assistants",
-    body: "Custom-trained assistants for sales, support and internal teams. Integrated into your website, WhatsApp, Slack or mobile app. Not generic — trained on your products, FAQs and processes.",
-    tags: ["OpenAI GPT-4", "Claude API", "WhatsApp Business", "Custom RAG"],
-    color: "#1878F0",
-    bg: "#EAF2FF",
-  },
-  {
-    icon: Workflow,
-    title: "AI Workflow Automation",
-    body: "Automate repetitive back-office work — document processing, data extraction, invoice matching, email triage, approval chains. Reduces manual effort by 60–80% on routine tasks.",
-    tags: ["n8n", "LangChain", "Python", "Webhooks"],
-    color: "#F04830",
-    bg: "#FFF0EC",
-  },
-  {
-    icon: BarChart3,
-    title: "Predictive Analytics and ML",
-    body: "Demand forecasting, churn prediction, fraud detection, dynamic pricing — models trained on your own data, deployed as APIs your existing systems can call.",
-    tags: ["scikit-learn", "TensorFlow", "AWS SageMaker", "FastAPI"],
-    color: "#0B8A3E",
-    bg: "#EDFAF3",
-  },
-  {
-    icon: FileSearch,
-    title: "Document Intelligence and NLP",
-    body: "Extract structured data from invoices, contracts, medical reports, KYC documents. Summarise, classify and route documents automatically — no manual data entry.",
-    tags: ["Claude API", "OCR", "LangChain", "PostgreSQL"],
-    color: "#7C3AED",
-    bg: "#F5F0FF",
-  },
-  {
-    icon: Eye,
-    title: "Computer Vision",
-    body: "Quality inspection, object detection, face recognition, number plate reading — real-time vision processing for manufacturing, security and logistics.",
-    tags: ["OpenCV", "YOLO", "TensorFlow", "RTSP Streams"],
-    color: "#D97706",
-    bg: "#FFFBEB",
-  },
-  {
-    icon: MessageSquare,
-    title: "Custom LLM Integration",
-    body: "Embed GPT-4, Claude, Gemini or open-source models (Llama, Mistral) into your existing products — ERP, CRM, HRMS, mobile apps. Add AI features without rebuilding from scratch.",
-    tags: ["OpenAI", "Anthropic Claude", "Google Gemini", "Ollama / Llama"],
-    color: "#1878F0",
-    bg: "#EAF2FF",
-  },
-];
+import { CAPABILITIES } from "@/lib/data/ai-capabilities";
 
 /* ─── Industry use cases ─── */
 const INDUSTRIES = [
@@ -101,7 +50,7 @@ const INDUSTRIES = [
 /* ─── Process ─── */
 const PROCESS = [
   { n: "01", title: "Discovery and Data Audit", body: "We review your business problem, existing data sources and where AI can realistically reduce cost or increase revenue." },
-  { n: "02", title: "Proof of Concept", body: "A working prototype — not a slide deck. Built in 2–4 weeks so you can see and test the model before committing to full development." },
+  { n: "02", title: "Proof of Concept", body: "A working prototype, not a slide deck. Built in 2–4 weeks so you can see and test the model before committing to full development." },
   { n: "03", title: "Build and Integrate", body: "Production deployment integrated into your existing systems. API-first so your team can call it from any app, ERP or mobile platform." },
   { n: "04", title: "Monitor and Improve", body: "AI models drift over time. We monitor outputs, retrain on new data and improve accuracy continuously under a managed service contract." },
 ];
@@ -475,8 +424,8 @@ export default function AIPoweredSolutionsPage() {
               <div className="space-y-4">
                 {[
                   { icon: Database, text: "We sign an NDA before reviewing any of your data or systems" },
-                  { icon: Bot, text: "Proof of concept built in 2–4 weeks — see before you commit" },
-                  { icon: BarChart3, text: "Fixed-price quotes — no open-ended AI consulting retainers" },
+                  { icon: Bot, text: "Proof of concept built in 2–4 weeks, see before you commit" },
+                  { icon: BarChart3, text: "Fixed-price quotes, no open-ended AI consulting retainers" },
                   { icon: CheckCircle2, text: "You own all code, models and data — no vendor lock-in" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3 text-sm text-[#EAF0FA]/70">

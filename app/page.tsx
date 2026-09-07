@@ -11,6 +11,11 @@ import HeroSlider, { HeroSlide, HeroStat } from "@/components/home/HeroSlider";
 import TechStack from "@/components/TechStack";
 import { JsonLd, buildMetadata, orgSchema } from "@/components/SEO";
 import { API_BASE, fixMediaUrl, getPageSEO } from "@/lib/wagtail";
+import Reveal from "@/components/motion/Reveal";
+import ParticleField from "@/components/motion/ParticleField";
+import DottedGlobe from "@/components/motion/DottedGlobe";
+import { CAPABILITIES } from "@/lib/data/ai-capabilities";
+import { siteConfig } from "@/lib/data/site";
 
 export const revalidate = 60;
 
@@ -303,8 +308,9 @@ export default async function Home() {
       <HeroSlider slides={slides} stats={heroStats} />
 
       {/* ━━━━ STATS BAR — Dynamic from Wagtail CMS ━━━━ */}
-      <section style={{ background: "linear-gradient(180deg, #060B24 0%, #0A1540 60%, #0D1F6E 100%)" }}>
-        <div className="container-custom py-8">
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #060B24 0%, #0A1540 60%, #0D1F6E 100%)" }}>
+        <ParticleField className="absolute inset-0" density={36} color="96, 165, 250" opacity={0.4} />
+        <div className="container-custom py-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {statsBar.map((stat: StatItem, idx: number) => {
               const Icon = iconMap[stat.icon] ?? Award;
@@ -341,6 +347,7 @@ export default async function Home() {
       {/* ━━━━ SERVICES — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py" style={{ background: "#F4F8FF" }}>
         <div className="container-custom">
+        <Reveal>
 
           {/* Section header */}
           <div className="text-center mb-16">
@@ -431,17 +438,19 @@ export default async function Home() {
               {svc.cta_text} <ArrowRight size={16} />
             </Link>
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ TECH STACK ━━━━ */}
       <section className="section-py bg-[#F4F7FC]">
         <div className="container-custom">
+        <Reveal>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="section-tag mb-5">Our Tech Stack</span>
             <h2 className="section-heading mb-4">The technologies behind every build</h2>
             <p className="text-[#5A6380] leading-relaxed">
-              From AI and machine learning to mobile, web, cloud and databases — a modern,
+              From AI and machine learning to mobile, web, cloud and databases, a modern,
               production-proven stack chosen per project, not per fashion.
             </p>
           </div>
@@ -451,12 +460,60 @@ export default async function Home() {
               Explore our full tech stack <ArrowRight size={16} />
             </Link>
           </p>
+        </Reveal>
+        </div>
+      </section>
+
+      {/* ━━━━ POWERED BY AI AND AUTOMATION — new section, reuses the real
+           capability list from /services/ai-powered-solutions verbatim ━━━━ */}
+      <section className="section-py relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0B1233 0%, #0A1A4A 100%)" }}>
+        <ParticleField className="absolute inset-0" density={30} color="91, 63, 200" opacity={0.3} />
+        <div className="container-custom relative z-10">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="section-tag mb-5" style={{ borderColor: "rgba(96,165,250,0.3)", background: "rgba(96,165,250,0.08)", color: "#93C5FD" }}>Powered By AI and Automation</span>
+              <h2 className="section-heading-invert mb-4">Not just IT services, a partner already building with AI</h2>
+              <p className="text-white/60 leading-relaxed">
+                Chatbots, workflow automation, predictive models and document intelligence, the same AI capability
+                we build for clients also runs inside how we deliver every project.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {CAPABILITIES.slice(0, 6).map((cap, idx) => {
+              const Icon = cap.icon;
+              return (
+                <Reveal key={cap.title} delay={idx * 70}>
+                  <div className="h-full bg-white/[0.04] border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/20 transition-all duration-300">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${cap.color}22` }}>
+                      <Icon size={20} style={{ color: cap.color }} />
+                    </div>
+                    <h3 className="font-display font-bold text-white text-base mb-2">{cap.title}</h3>
+                    <p className="text-sm text-white/55 leading-relaxed mb-4">{cap.body}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {cap.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="text-[11px] font-mono text-white/50 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal>
+            <div className="text-center mt-12">
+              <Link href="/services/ai-powered-solutions" className="btn-primary inline-flex" prefetch={false}>
+                See our AI and automation services <ArrowRight size={16} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ━━━━ ABOUT ITSOLVEZ — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py" style={{ background: "linear-gradient(135deg, #EBF4FF 0%, #F5F9FF 50%, #EEF0FF 100%)" }}>
         <div className="container-custom">
+        <Reveal>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="section-tag mb-4">{about.tag}</span>
@@ -510,12 +567,14 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ HOW WE WORK — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py bg-white">
         <div className="container-custom">
+        <Reveal>
           <div className="text-center mb-16">
             <span className="section-tag mb-4">{proc.tag}</span>
             <h2 className="section-heading mb-4">{proc.heading}</h2>
@@ -556,12 +615,14 @@ export default async function Home() {
               );
             })}
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ INDUSTRIES — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py gradient-blue-deep grid-bg">
         <div className="container-custom">
+        <Reveal>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-white/60 border border-white/20 bg-white/8 px-3 py-1 rounded-full mb-4">{ind.tag}</span>
             <h2 className="font-display text-3xl lg:text-4xl font-black text-white mb-4">{ind.heading}</h2>
@@ -583,12 +644,75 @@ export default async function Home() {
           <div className="text-center mt-10">
             <Link href={ind.cta_url} className="btn-ghost" prefetch={false}>{ind.cta_text} <ArrowRight size={16} /></Link>
           </div>
+        </Reveal>
+        </div>
+      </section>
+
+      {/* ━━━━ GLOBAL PRESENCE — new section, reuses existing site stats and
+           already-live country pages, no new claims ━━━━ */}
+      <section className="section-py bg-white overflow-hidden">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Reveal>
+              <div>
+                <span className="section-tag mb-5">Global Presence</span>
+                <h2 className="section-heading mb-6">
+                  Built in India, <span className="text-[#1878F0]">delivering worldwide</span>
+                </h2>
+                <p className="text-[#5A6380] leading-relaxed mb-8">
+                  {siteConfig.stats.clientsServed}+ clients, {siteConfig.stats.projectsDelivered}+ projects delivered,
+                  across India and {siteConfig.stats.countriesServed}+ countries. Every engagement runs on the same
+                  ISO-certified process, wherever the client sits.
+                </p>
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div>
+                    <div className="font-display text-3xl font-black text-[#0B1233]">{siteConfig.stats.clientsServed}+</div>
+                    <div className="text-xs text-[#5A6380] mt-1">Clients Served</div>
+                  </div>
+                  <div>
+                    <div className="font-display text-3xl font-black text-[#0B1233]">{siteConfig.stats.projectsDelivered}+</div>
+                    <div className="text-xs text-[#5A6380] mt-1">Projects Delivered</div>
+                  </div>
+                  <div>
+                    <div className="font-display text-3xl font-black text-[#0B1233]">{siteConfig.stats.countriesServed}+</div>
+                    <div className="text-xs text-[#5A6380] mt-1">Countries</div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { label: "India", href: "/locations" },
+                    { label: "UAE", href: "/uae" },
+                    { label: "UK", href: "/uk" },
+                    { label: "USA", href: "/usa" },
+                    { label: "Australia", href: "/australia" },
+                    { label: "Canada", href: "/canada" },
+                    { label: "Germany", href: "/germany" },
+                    { label: "Saudi Arabia", href: "/saudi-arabia" },
+                    { label: "South Africa", href: "/south-africa" },
+                    { label: "Qatar", href: "/qatar" },
+                    { label: "Singapore", href: "/singapore" },
+                  ].map((c) => (
+                    <Link key={c.href} href={c.href} prefetch={false}
+                      className="text-xs font-semibold text-[#1878F0] bg-[#EAF2FF] hover:bg-[#1878F0] hover:text-white px-3 py-1.5 rounded-full transition-colors">
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="flex justify-center">
+                <DottedGlobe size={420} className="max-w-full h-auto" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ━━━━ WHY ITSOLVEZ — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py bg-[#F0F7FF]">
         <div className="container-custom">
+        <Reveal>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="section-tag mb-4">{why.tag}</span>
@@ -649,12 +773,14 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ CASE STUDIES — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py bg-white">
         <div className="container-custom">
+        <Reveal>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <span className="section-tag mb-4">{cs.tag}</span>
@@ -691,12 +817,14 @@ export default async function Home() {
               );
             })}
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ TESTIMONIALS — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py bg-[#FFF8F6]">
         <div className="container-custom">
+        <Reveal>
           <div className="text-center mb-12">
             <span className="section-tag mb-4">{tms.tag}</span>
             <h2 className="section-heading mb-4">{tms.heading}</h2>
@@ -722,12 +850,14 @@ export default async function Home() {
               );
             })}
           </div>
+        </Reveal>
         </div>
       </section>
 
       {/* ━━━━ BOTTOM CTA — Dynamic from Wagtail CMS ━━━━ */}
       <section className="section-py bg-[#EBF4FF]">
         <div className="container-custom">
+        <Reveal>
           <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl min-h-[420px]">
             <div className="min-h-[280px] lg:min-h-0 bg-cover bg-center relative" style={{ backgroundImage: `url('${fixMediaUrl(cta.image_url)}')` }}>
               <div className="absolute inset-0 bg-[#1878F0]/15" />
@@ -747,6 +877,7 @@ export default async function Home() {
               <p className="text-white/30 text-xs mt-6">{cta.footnote}</p>
             </div>
           </div>
+        </Reveal>
         </div>
       </section>
     </>

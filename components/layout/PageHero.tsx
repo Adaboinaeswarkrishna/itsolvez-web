@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
+import Reveal from "@/components/motion/Reveal";
+import ParticleField from "@/components/motion/ParticleField";
 
 interface BreadcrumbItem {
   label: string;
@@ -38,7 +40,7 @@ export default function PageHero({
       <div className="absolute inset-0 z-0">
         <Image
           src={bgImage}
-          alt={`${title} — ITSolvez`}
+          alt={`${title} - ITSolvez`}
           fill
           className="object-cover object-center"
           priority
@@ -74,8 +76,12 @@ export default function PageHero({
         }}
       />
 
+      {/* Faint drifting particle backdrop — subtle enough to sit behind any bgImage */}
+      <ParticleField className="absolute inset-0 z-[2]" density={22} color="96, 165, 250" opacity={0.28} />
+
       {/* Content */}
       <div className="container-custom relative z-10 pt-32 pb-16 w-full">
+        <Reveal>
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav className="flex items-center gap-2 text-sm mb-5 flex-wrap">
@@ -134,6 +140,7 @@ export default function PageHero({
 
         {/* Optional CTA slot */}
         {children && <div className="flex flex-wrap gap-3 mt-2">{children}</div>}
+        </Reveal>
       </div>
 
       {/* Bottom wave — colour matches first section below hero */}
