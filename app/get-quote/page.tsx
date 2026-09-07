@@ -95,7 +95,7 @@ export default function GetQuotePage() {
         tag="Get a Quote"
         title="Transparent pricing."
         titleAccent="No surprises."
-        subtitle="We publish our price ranges openly — because our clients deserve to know what they're paying for before they talk to us. Get a detailed, itemised quote for your project within 48 hours."
+        subtitle="We publish our price ranges openly, because our clients deserve to know what they're paying for before they talk to us. Get a detailed, itemised quote for your project within 48 hours."
         bgImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Get a Quote" }]}
         waveFill="#F4F7FC"
@@ -112,7 +112,7 @@ export default function GetQuotePage() {
                 <h2 className="font-display text-2xl font-black text-[#0B1233] mb-2">What things typically cost</h2>
                 <p className="text-sm text-[#5A6380] mb-6 leading-relaxed">
                   These are honest ranges based on what we actually charge clients. Final cost depends on features, complexity and timeline.
-                  You&apos;ll get an itemised quote — not a vague number.
+                  You&apos;ll get an itemised quote, not a vague number.
                 </p>
 
                 <div className="space-y-3">
@@ -188,7 +188,7 @@ export default function GetQuotePage() {
               {/* Timeline expectations */}
               <div className="flex items-start gap-3 text-sm text-[#5A6380] bg-white rounded-2xl p-5 border border-[#E5E9F2]">
                 <Clock size={16} className="text-[#F04830] flex-shrink-0 mt-0.5" />
-                <p><strong className="text-[#0B1233]">Quote turnaround: 48 hours.</strong> We review your requirements, sometimes ask a few clarifying questions, then send a detailed breakdown. No vague &quot;let&apos;s hop on a call to discuss budget&quot; — we respect your time.</p>
+                <p><strong className="text-[#0B1233]">Quote turnaround: 48 hours.</strong> We review your requirements, sometimes ask a few clarifying questions, then send a detailed breakdown. No vague &quot;let&apos;s hop on a call to discuss budget&quot;, we respect your time.</p>
               </div>
             </div>
 
@@ -240,7 +240,7 @@ export default function GetQuotePage() {
                           className={`w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none bg-white ${touched.service && errors.service ? "border-[#F04830] focus:border-[#F04830]" : "border-[#E5E9F2] focus:border-[#1878F0]"}`}>
                           <option value="">Select a service…</option>
                           {SERVICES.map((s) => <option key={s}>{s}</option>)}
-                          <option>Not sure — need advice</option>
+                          <option>Not sure, need advice</option>
                         </select>
                         {touched.service && errors.service && <p className="text-xs text-[#F04830] mt-1">{errors.service}</p>}
                       </div>

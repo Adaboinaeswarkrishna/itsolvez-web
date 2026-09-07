@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, IndianRupee, TrendingUp, Clock, Users } from "lucide-react";
 
 function fmtINR(n: number): string {
-  if (!isFinite(n)) return "—";
+  if (!isFinite(n)) return ", ";
   if (Math.abs(n) >= 10000000) return `₹${(n / 10000000).toFixed(2)} Cr`;
   if (Math.abs(n) >= 100000) return `₹${(n / 100000).toFixed(2)} L`;
   return `₹${Math.round(n).toLocaleString("en-IN")}`;
@@ -98,7 +98,7 @@ export default function RoiCalculator() {
           <div className="text-sm text-[#EAF0FA]/60 mt-1">≈ {roiPct}% monthly return on managed IT investment</div>
         </div>
         <p className="text-xs text-[#EAF0FA]/40 leading-relaxed">
-          Indicative estimate, not a quote. Real numbers depend on your environment — get exact
+          Indicative estimate, not a quote. Real numbers depend on your environment, get exact
           figures from a free assessment.
         </p>
         <Link href="/contact"

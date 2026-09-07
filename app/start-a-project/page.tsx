@@ -10,7 +10,7 @@ const PROJECT_TYPES = [
   "Business Website", "E-commerce Website", "Mobile App (iOS and Android)",
   "Web Application / Portal", "ERP / CRM System", "HRMS Software",
   "SaaS Product", "IT Managed Services", "Digital Marketing / SEO",
-  "Not sure — I need advice",
+  "Not sure, I need advice",
 ];
 const BUDGET_RANGES = ["Under ₹50,000", "₹50,000 – ₹2,00,000", "₹2,00,000 – ₹5,00,000", "₹5,00,000 – ₹15,00,000", "₹15,00,000 – ₹50,00,000", "₹50,00,000+"];
 const TIMELINES = ["As soon as possible", "Within 1 month", "1–3 months", "3–6 months", "6+ months", "Not decided yet"];
@@ -25,7 +25,7 @@ const WHAT_WE_BUILD = [
 const PROCESS = [
   { n: "1", title: "We review your brief", body: "Within 24 hours. We may ask a few clarifying questions to understand your requirements properly." },
   { n: "2", title: "30-min discovery call", body: "We talk through your project to make sure we've understood everything correctly before scoping." },
-  { n: "3", title: "Scope + cost estimate", body: "A detailed scope document with itemised costs and timeline — within 48 hours of the call." },
+  { n: "3", title: "Scope + cost estimate", body: "A detailed scope document with itemised costs and timeline, within 48 hours of the call." },
   { n: "4", title: "You decide", body: "No pressure. If we're the right fit, we start. If not, we'll say so. No retainer needed to get a quote." },
 ];
 
@@ -74,7 +74,7 @@ export default function StartAProjectPage() {
         tag="Start a Project"
         title="Tell us what you"
         titleAccent="want to build."
-        subtitle="We'll come back with an honest scope, realistic timeline and itemised cost estimate — within 48 hours. No retainer, no obligation."
+        subtitle="We'll come back with an honest scope, realistic timeline and itemised cost estimate, within 48 hours. No retainer, no obligation."
         bgImage="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Start a Project" }]}
         waveFill="#F4F7FC"
@@ -92,10 +92,10 @@ export default function StartAProjectPage() {
                 <h2 className="font-display text-2xl font-black text-[#0B1233] mb-2">What we build</h2>
                 <p className="text-[#5A6380] text-sm mb-6 leading-relaxed">
                   ITSolvez has delivered 300+ projects across websites, mobile apps, web applications and enterprise software.
-                  We also run our own products — OnlyOnTrip,{" "}
+                  We also run our own products, OnlyOnTrip,{" "}
                   JourneyXpress,{" "}
                   <a href="https://hrmsitsolvez.com" target="_blank" rel="noopener noreferrer" className="text-[#1878F0] hover:underline">ITSolvez HRMS</a> and{" "}
-                  <a href="https://factoremail.com" target="_blank" rel="noopener noreferrer" className="text-[#1878F0] hover:underline">Factor Email</a> — so when we say we can build something, we've already built it for ourselves.
+                  <a href="https://factoremail.com" target="_blank" rel="noopener noreferrer" className="text-[#1878F0] hover:underline">Factor Email</a>, so when we say we can build something, we've already built it for ourselves.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {WHAT_WE_BUILD.map((item) => (
@@ -134,8 +134,8 @@ export default function StartAProjectPage() {
                 {[
                   { icon: Clock, text: "Response within 48 hours, guaranteed" },
                   { icon: Shield, text: "NDA available before scope discussion" },
-                  { icon: Users, text: "You own all code — no lock-in, ever" },
-                  { icon: CheckCircle2, text: "Milestone-based payments — pay as we build" },
+                  { icon: Users, text: "You own all code, no lock-in, ever" },
+                  { icon: CheckCircle2, text: "Milestone-based payments, pay as we build" },
                   { icon: CheckCircle2, text: "Fixed-price contracts available for defined scopes" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#5A6380]">
@@ -147,7 +147,7 @@ export default function StartAProjectPage() {
               {/* Portfolio teaser */}
               <div className="bg-gradient-to-br from-[#060B24] to-[#1261CC] rounded-2xl p-6">
                 <p className="text-[#EAF0FA]/60 text-xs mb-1">See what we've built</p>
-                <p className="text-white font-bold mb-4">Browse our portfolio — real projects, real results</p>
+                <p className="text-white font-bold mb-4">Browse our portfolio, real projects, real results</p>
                 <Link href="/portfolio" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors w-max" prefetch={false}>
                   View portfolio <ArrowRight size={14} />
                 </Link>

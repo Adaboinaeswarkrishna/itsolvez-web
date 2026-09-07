@@ -42,7 +42,7 @@ const FALLBACK_META: Record<string, { title: string; description: string }> = {
   },
   "cloud-cost-optimisation-india-2026": {
     title: "How Indian Businesses Can Cut Their Cloud Bill by 30–40% in 2026",
-    description: "Practical cloud cost optimisation strategies for Indian businesses — right-sizing, unused storage cleanup, dev environment scheduling and Reserved Instances.",
+    description: "Practical cloud cost optimisation strategies for Indian businesses, right-sizing, unused storage cleanup, dev environment scheduling and Reserved Instances.",
   },
   "ransomware-india-2026-what-businesses-need-to-know": {
     title: "Ransomware in India 2026: What Every Business Needs to Know",
@@ -50,15 +50,15 @@ const FALLBACK_META: Record<string, { title: string; description: string }> = {
   },
   "dpdpa-2023-it-obligations-india": {
     title: "DPDPA 2023: What India's Data Protection Law Means for Your IT Team",
-    description: "Key IT obligations under India's Digital Personal Data Protection Act 2023 — data minimisation, retention limits, breach notification and security safeguards.",
+    description: "Key IT obligations under India's Digital Personal Data Protection Act 2023, data minimisation, retention limits, breach notification and security safeguards.",
   },
   "aeo-answer-engine-optimisation-india-2026": {
     title: "AEO in 2026: How to Get Cited by ChatGPT and Gemini for IT Queries",
-    description: "Answer Engine Optimisation for Indian IT service businesses — how to structure content so AI tools like ChatGPT and Gemini cite your business.",
+    description: "Answer Engine Optimisation for Indian IT service businesses, how to structure content so AI tools like ChatGPT and Gemini cite your business.",
   },
   "choosing-cloud-provider-india-aws-azure-gcp": {
     title: "AWS vs Azure vs Google Cloud for Indian Businesses: A Practical Comparison",
-    description: "How to choose between AWS, Azure and GCP for your Indian business — workload fit, compliance, Microsoft integration and cost considerations.",
+    description: "How to choose between AWS, Azure and GCP for your Indian business, workload fit, compliance, Microsoft integration and cost considerations.",
   },
 };
 
@@ -125,28 +125,28 @@ function extractFaqsFromBody(body: string): { question: string; answer: string }
 }
 
 const FALLBACK_CONTENT: Record<string, string> = {
-  "managed-it-vs-break-fix-india": `<p>Most Indian SMEs believe break-fix IT support is cheaper because you only pay when something breaks. But when you actually measure the full cost — downtime, lost productivity, emergency call-out rates and expedited hardware replacement — the numbers tell a very different story.</p>
+  "managed-it-vs-break-fix-india": `<p>Most Indian SMEs believe break-fix IT support is cheaper because you only pay when something breaks. But when you actually measure the full cost, downtime, lost productivity, emergency call-out rates and expedited hardware replacement, the numbers tell a very different story.</p>
 
 <h2>What break-fix actually costs</h2>
-<p>The hidden cost of break-fix is downtime. When a server fails and you're waiting for a technician to be dispatched, diagnosed, and repaired, your team sits idle. For a 50-person business at an average salary of ₹40,000/month, every hour of downtime costs roughly ₹12,500 in lost productivity alone — before factoring in client impact, missed deadlines or emergency IT charges.</p>
+<p>The hidden cost of break-fix is downtime. When a server fails and you're waiting for a technician to be dispatched, diagnosed, and repaired, your team sits idle. For a 50-person business at an average salary of ₹40,000/month, every hour of downtime costs roughly ₹12,500 in lost productivity alone, before factoring in client impact, missed deadlines or emergency IT charges.</p>
 
-<p>Break-fix providers also charge premium rates for emergency work. A server that costs ₹5,000 to maintain proactively can cost ₹25,000–₹50,000 to fix reactively — plus the downtime while you wait.</p>
+<p>Break-fix providers also charge premium rates for emergency work. A server that costs ₹5,000 to maintain proactively can cost ₹25,000–₹50,000 to fix reactively, plus the downtime while you wait.</p>
 
 <h2>What managed IT actually costs</h2>
 <p>A managed IT service at ₹999–₹1,499 per user per month for a 50-person business runs ₹50,000–₹75,000/month. That includes 24/7 monitoring, proactive maintenance, patch management, remote support with SLAs, and security management.</p>
 
-<p>A single avoided downtime event — even a half-day — typically covers the entire month's managed IT cost. And because managed IT is proactive, major incidents are dramatically rarer.</p>
+<p>A single avoided downtime event, even a half-day, typically covers the entire month's managed IT cost. And because managed IT is proactive, major incidents are dramatically rarer.</p>
 
 <h2>The verdict</h2>
-<p>For businesses with more than 10 employees, managed IT almost always costs less in total than break-fix when you account for the full picture. The predictable monthly fee also makes budgeting straightforward — which has its own value for growing businesses.</p>
+<p>For businesses with more than 10 employees, managed IT almost always costs less in total than break-fix when you account for the full picture. The predictable monthly fee also makes budgeting straightforward, which has its own value for growing businesses.</p>
 
-<p>If you're currently on a break-fix model, the right question isn't "can we afford managed IT?" — it's "how much is break-fix actually costing us?"</p>`,
+<p>If you're currently on a break-fix model, the right question isn't "can we afford managed IT?", it's "how much is break-fix actually costing us?"</p>`,
 
-  "cloud-cost-optimisation-india-2026": `<p>India's cloud computing market is growing at 13.35% CAGR — but most businesses are paying 30–40% more than they need to. The waste comes from three consistent sources: over-provisioned instances, unused storage, and orphaned snapshots.</p>
+  "cloud-cost-optimisation-india-2026": `<p>India's cloud computing market is growing at 13.35% CAGR, but most businesses are paying 30–40% more than they need to. The waste comes from three consistent sources: over-provisioned instances, unused storage, and orphaned snapshots.</p>
 
 <h2>The three biggest sources of cloud waste</h2>
 <h3>1. Over-provisioned instances</h3>
-<p>When businesses migrate to the cloud, they typically lift-and-shift their on-premise server specs without right-sizing. A server that was running at 15% utilisation on-premise gets migrated as-is — and you pay for 100% of the capacity, 24/7. Right-sizing alone typically reduces compute costs by 20–35%.</p>
+<p>When businesses migrate to the cloud, they typically lift-and-shift their on-premise server specs without right-sizing. A server that was running at 15% utilisation on-premise gets migrated as-is, and you pay for 100% of the capacity, 24/7. Right-sizing alone typically reduces compute costs by 20–35%.</p>
 
 <h3>2. Unused storage</h3>
 <p>Orphaned EBS volumes, unattached persistent disks, and forgotten backup buckets accumulate silently. Cloud storage seems cheap until you have 50TB of it and realise 20TB is data you no longer need.</p>
@@ -155,21 +155,21 @@ const FALLBACK_CONTENT: Record<string, string> = {
 <p>Dev and staging environments that run 24/7 when they're only needed 8 hours a day, 5 days a week, waste roughly 75% of their cost. Scheduling automatic shutdowns for non-production resources is one of the fastest wins available.</p>
 
 <h2>Practical steps for 2026</h2>
-<ul><li>Run a cloud cost audit — most providers offer native tools (AWS Cost Explorer, Azure Cost Analysis)</li><li>Implement rightsizing recommendations from your provider's advisor tools</li><li>Tag all resources so you can attribute costs by team or project</li><li>Set up budget alerts so overspend doesn't go unnoticed for a month</li><li>Consider Reserved Instances for predictable workloads (typically 30–40% cheaper than on-demand)</li></ul>
+<ul><li>Run a cloud cost audit, most providers offer native tools (AWS Cost Explorer, Azure Cost Analysis)</li><li>Implement rightsizing recommendations from your provider's advisor tools</li><li>Tag all resources so you can attribute costs by team or project</li><li>Set up budget alerts so overspend doesn't go unnoticed for a month</li><li>Consider Reserved Instances for predictable workloads (typically 30–40% cheaper than on-demand)</li></ul>
 
-<p>The businesses achieving 30–40% cloud cost reductions aren't doing anything exotic — they're just actively managing their cloud the way they'd manage any other cost centre.</p>`,
+<p>The businesses achieving 30–40% cloud cost reductions aren't doing anything exotic, they're just actively managing their cloud the way they'd manage any other cost centre.</p>`,
 
-  "ransomware-india-2026-what-businesses-need-to-know": `<p>India ranked among the top five most-targeted countries for ransomware in 2025 — and 2026 is on track to be worse. Attacks are no longer just encrypting files; they're exfiltrating data first and threatening to publish it. For Indian businesses, this means two separate consequences: downtime and regulatory exposure under DPDPA 2023.</p>
+  "ransomware-india-2026-what-businesses-need-to-know": `<p>India ranked among the top five most-targeted countries for ransomware in 2025, and 2026 is on track to be worse. Attacks are no longer just encrypting files; they're exfiltrating data first and threatening to publish it. For Indian businesses, this means two separate consequences: downtime and regulatory exposure under DPDPA 2023.</p>
 
 <h2>What's changed in 2026</h2>
-<p>The ransomware landscape has shifted in three important ways. First, attackers are targeting mid-market Indian businesses directly, not just as collateral damage in global campaigns. Second, they've moved to double-extortion — steal the data, then encrypt it. Third, initial access brokers now sell access to Indian networks on dark-web forums for as little as $500, meaning any reasonably sized business is a potential target.</p>
+<p>The ransomware landscape has shifted in three important ways. First, attackers are targeting mid-market Indian businesses directly, not just as collateral damage in global campaigns. Second, they've moved to double-extortion, steal the data, then encrypt it. Third, initial access brokers now sell access to Indian networks on dark-web forums for as little as $500, meaning any reasonably sized business is a potential target.</p>
 
 <h2>What actually stops ransomware</h2>
 <h3>Endpoint Detection and Response (EDR)</h3>
 <p>Traditional antivirus misses the behavioural patterns that mark ransomware activity. EDR tools monitor process behaviour in real time and can terminate a ransomware process before it encrypts more than a handful of files. This is now table-stakes for any business above 10 employees.</p>
 
 <h3>Immutable backups</h3>
-<p>Air-gapped or object-locked backups mean you can recover without paying ransom. The critical word is immutable — backups that can be deleted or encrypted by the attacker are not effective protection. Test your recovery process at least annually.</p>
+<p>Air-gapped or object-locked backups mean you can recover without paying ransom. The critical word is immutable, backups that can be deleted or encrypted by the attacker are not effective protection. Test your recovery process at least annually.</p>
 
 <h3>Privilege limitation</h3>
 <p>Ransomware spreads laterally using the permissions of the account it first compromises. Limiting admin rights, enforcing least-privilege access and separating service accounts limits blast radius dramatically.</p>
@@ -182,10 +182,10 @@ const FALLBACK_CONTENT: Record<string, string> = {
 
 <p>If you're unsure about your current ransomware exposure, a free IT security assessment from ITSolvez takes about 90 minutes and gives you a clear picture of where you stand.</p>`,
 
-  "dpdpa-2023-it-obligations-india": `<p>India's Digital Personal Data Protection Act 2023 became law in August 2023 and brings significant new IT obligations for businesses that collect, store or process personal data of Indian citizens. This is not a future requirement — it is current law, with rules and penalties that apply now.</p>
+  "dpdpa-2023-it-obligations-india": `<p>India's Digital Personal Data Protection Act 2023 became law in August 2023 and brings significant new IT obligations for businesses that collect, store or process personal data of Indian citizens. This is not a future requirement, it is current law, with rules and penalties that apply now.</p>
 
 <h2>Who it applies to</h2>
-<p>DPDPA applies to any organisation that processes "digital personal data" in India, or processes personal data outside India in connection with offering goods or services to Indian residents. This is broad — if you collect names, email addresses, phone numbers or any other identifying information from Indian customers, employees or vendors, DPDPA applies to you.</p>
+<p>DPDPA applies to any organisation that processes "digital personal data" in India, or processes personal data outside India in connection with offering goods or services to Indian residents. This is broad, if you collect names, email addresses, phone numbers or any other identifying information from Indian customers, employees or vendors, DPDPA applies to you.</p>
 
 <h2>Key obligations for IT teams</h2>
 <h3>Data minimisation</h3>
@@ -195,7 +195,7 @@ const FALLBACK_CONTENT: Record<string, string> = {
 <p>Data collected for one purpose cannot be used for another without fresh consent. If you're using a customer's email for marketing when they signed up for support notifications, that needs to change.</p>
 
 <h3>Data retention limits</h3>
-<p>Personal data must be erased once the purpose for which it was collected is fulfilled. You need a documented retention policy and a technical mechanism to enforce it — this is not something most Indian businesses currently have.</p>
+<p>Personal data must be erased once the purpose for which it was collected is fulfilled. You need a documented retention policy and a technical mechanism to enforce it, this is not something most Indian businesses currently have.</p>
 
 <h3>Breach notification</h3>
 <p>Any personal data breach must be reported to the Data Protection Board and to the affected data principals "in the prescribed manner." Penalties for failure to notify can reach ₹200 crore.</p>
@@ -204,14 +204,14 @@ const FALLBACK_CONTENT: Record<string, string> = {
 <p>DPDPA requires "reasonable security safeguards" to protect personal data. While this is principles-based rather than prescriptive, it effectively mandates encryption, access controls, audit logging and incident response capabilities.</p>
 
 <h2>Practical first steps</h2>
-<ul><li>Map where you store personal data across all systems (CRM, ERP, email, support tickets, backups)</li><li>Identify data flows — who collects it, who processes it, who has access</li><li>Review consent mechanisms on all forms and touchpoints</li><li>Implement a data retention policy with automated enforcement</li><li>Establish a breach detection and notification process</li></ul>
+<ul><li>Map where you store personal data across all systems (CRM, ERP, email, support tickets, backups)</li><li>Identify data flows, who collects it, who processes it, who has access</li><li>Review consent mechanisms on all forms and touchpoints</li><li>Implement a data retention policy with automated enforcement</li><li>Establish a breach detection and notification process</li></ul>
 
 <p>ITSolvez can help your team conduct a DPDPA readiness assessment and implement the technical controls required for compliance.</p>`,
 
-  "aeo-answer-engine-optimisation-india-2026": `<p>Answer Engine Optimisation (AEO) is the practice of structuring your content so that AI tools — ChatGPT, Google Gemini, Perplexity, Claude — cite your business when users ask relevant questions. As AI Overviews now appear in over 50% of Google searches, being cited by AI has become as valuable as ranking in traditional search results.</p>
+  "aeo-answer-engine-optimisation-india-2026": `<p>Answer Engine Optimisation (AEO) is the practice of structuring your content so that AI tools, ChatGPT, Google Gemini, Perplexity, Claude, cite your business when users ask relevant questions. As AI Overviews now appear in over 50% of Google searches, being cited by AI has become as valuable as ranking in traditional search results.</p>
 
 <h2>Why AEO matters for IT service businesses in 2026</h2>
-<p>When a business owner in Mumbai asks ChatGPT "which managed IT company should I contact in India?" or "what does IT outsourcing cost in India?", the AI synthesises an answer from sources it deems credible. Businesses that create genuinely useful, well-structured content on these questions get cited. Businesses that don't, don't appear at all — regardless of how good their services are.</p>
+<p>When a business owner in Mumbai asks ChatGPT "which managed IT company should I contact in India?" or "what does IT outsourcing cost in India?", the AI synthesises an answer from sources it deems credible. Businesses that create genuinely useful, well-structured content on these questions get cited. Businesses that don't, don't appear at all, regardless of how good their services are.</p>
 
 <h2>What makes content AI-citation-worthy</h2>
 <h3>Specific, factual answers</h3>
@@ -231,7 +231,7 @@ const FALLBACK_CONTENT: Record<string, string> = {
 
 <p>The businesses that invest in AEO now will have a significant advantage as AI-mediated search becomes the default way buyers find service providers.</p>`,
 
-  "choosing-cloud-provider-india-aws-azure-gcp": `<p>AWS, Azure and Google Cloud all run production workloads for Indian businesses — and all three have data centres in India (AWS and Azure in Mumbai and Hyderabad; GCP in Mumbai and Delhi). The choice between them is not about which is "best" in the abstract, but which is the best fit for your specific workload, team and compliance requirements.</p>
+  "choosing-cloud-provider-india-aws-azure-gcp": `<p>AWS, Azure and Google Cloud all run production workloads for Indian businesses, and all three have data centres in India (AWS and Azure in Mumbai and Hyderabad; GCP in Mumbai and Delhi). The choice between them is not about which is "best" in the abstract, but which is the best fit for your specific workload, team and compliance requirements.</p>
 
 <h2>AWS (Amazon Web Services)</h2>
 <p>AWS is the most mature cloud platform with the widest range of services. It has the largest ecosystem of third-party tools, the deepest set of managed services, and the most extensive documentation and community support. AWS is typically the right choice when:</p>
@@ -245,11 +245,11 @@ const FALLBACK_CONTENT: Record<string, string> = {
 
 <h2>Google Cloud Platform (GCP)</h2>
 <p>GCP is strongest in data analytics, machine learning and Kubernetes. Google's internal infrastructure expertise translates directly into GCP's networking performance and its BigQuery, Vertex AI and GKE offerings. GCP is typically the right choice when:</p>
-<ul><li>Data analytics and ML/AI are core to your workload</li><li>You're running containerised workloads at scale (GKE is the most mature managed Kubernetes)</li><li>Network performance is critical — Google's global network is exceptional</li><li>You're already using Google Workspace</li></ul>
+<ul><li>Data analytics and ML/AI are core to your workload</li><li>You're running containerised workloads at scale (GKE is the most mature managed Kubernetes)</li><li>Network performance is critical, Google's global network is exceptional</li><li>You're already using Google Workspace</li></ul>
 <p>Trade-off: GCP has fewer India-specific managed services and a smaller local partner ecosystem compared to AWS and Azure.</p>
 
 <h2>What most Indian businesses should do</h2>
-<p>For most Indian SMEs and mid-market companies, the decision comes down to: existing Microsoft investment → Azure; greenfield with no strong preference → AWS; data/AI-heavy workloads → GCP. Multi-cloud adds operational complexity that most teams aren't staffed to manage well — pick one and do it properly.</p>
+<p>For most Indian SMEs and mid-market companies, the decision comes down to: existing Microsoft investment → Azure; greenfield with no strong preference → AWS; data/AI-heavy workloads → GCP. Multi-cloud adds operational complexity that most teams aren't staffed to manage well, pick one and do it properly.</p>
 
 <p>If you'd like a cloud assessment to determine which platform fits your workload, ITSolvez offers a free 90-minute cloud readiness review.</p>`,
 };
@@ -470,7 +470,7 @@ export default async function BlogPostPage({ params }: Props) {
             Put this into practice for your business
           </h2>
           <p className="text-[#5A6380] mb-8">
-            ITSolvez works with businesses across India to implement exactly what you&apos;ve just read — with the expertise to do it right.
+            ITSolvez works with businesses across India to implement exactly what you&apos;ve just read, with the expertise to do it right.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary" prefetch={false}>

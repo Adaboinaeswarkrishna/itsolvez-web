@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const FALLBACK_SLIDES: HeroSlide[] = [
   { image_url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80", tag: "Software · Web · Mobile Apps", headline: "IT that keeps your", accent: "business moving.", subtitle: "Custom software, web and mobile app development, managed IT and digital services for businesses across India and 5+ countries.", cta_text: "Book a Free Consultation", cta_url: "/contact", phone_label: "NEED HELP", phone_number: "+91 9967470207", badges: ["ISO 9001:2015 Certified", "ISO 27001:2022 Certified", "ISO 20000-1:2018 Certified", "Microsoft Partner"] },
   { image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80", tag: "Cloud Computing · AWS · Azure · GCP", headline: "Cloud solutions that", accent: "scale with you.", subtitle: "AWS, Azure and Google Cloud migrations, architecture and ongoing management for enterprises ready to modernise.", cta_text: "Book a Free Consultation", cta_url: "/contact", phone_label: "NEED HELP", phone_number: "+91 9967470207", badges: ["ISO 9001:2015 Certified", "ISO 27001:2022 Certified", "ISO 20000-1:2018 Certified", "Microsoft Partner"] },
-  { image_url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1920&q=80", tag: "Web and App Development · UI/UX", headline: "Websites and apps that", accent: "win customers.", subtitle: "High-performance websites, e-commerce platforms and iOS/Android apps — designed, built and maintained by one accountable team.", cta_text: "Book a Free Consultation", cta_url: "/contact", phone_label: "NEED HELP", phone_number: "+91 9967470207", badges: ["ISO 9001:2015 Certified", "ISO 27001:2022 Certified", "ISO 20000-1:2018 Certified", "Microsoft Partner"] },
+  { image_url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1920&q=80", tag: "Web and App Development · UI/UX", headline: "Websites and apps that", accent: "win customers.", subtitle: "High-performance websites, e-commerce platforms and iOS/Android apps, designed, built and maintained by one accountable team.", cta_text: "Book a Free Consultation", cta_url: "/contact", phone_label: "NEED HELP", phone_number: "+91 9967470207", badges: ["ISO 9001:2015 Certified", "ISO 27001:2022 Certified", "ISO 20000-1:2018 Certified", "Microsoft Partner"] },
 ];
 const FALLBACK_HERO_STATS: HeroStat[] = [
   { icon: "Users",  label: "Happy Clients",   value: "120+",  color: "emerald" },
@@ -113,10 +113,10 @@ const FALLBACK_WHY: WhySection = {
   tag: "Why ITSolvez", heading: "The difference between a vendor and a", heading_accent: "partner",
   description: "Most IT providers react. We prevent. Most measure themselves by tickets closed, we measure ourselves by your uptime, your delivery speed and your growth.",
   points: [
-    "ISO 9001, ISO 27001 and ISO 20000-1 certified — quality, security and service management independently audited",
-    "Named engineers who know your environment — not a faceless queue",
+    "ISO 9001, ISO 27001 and ISO 20000-1 certified, quality, security and service management independently audited",
+    "Named engineers who know your environment, not a faceless queue",
     "SLA-backed response times on every engagement",
-    "Vendor-honest advice — Microsoft, AWS and Google Cloud certified",
+    "Vendor-honest advice, Microsoft, AWS and Google Cloud certified",
     "AEO and SEO-optimised digital services built for 2026 AI-search",
     "DPDPA 2023 and sector compliance built into every solution",
     "Transparent monthly reporting tied to business outcomes, not ticket counts",
@@ -155,7 +155,7 @@ const FALLBACK_TESTIMONIALS: TestimonialsSection = {
 
 const FALLBACK_CTA: CtaSection = {
   tag: "Get Started Today", heading: "Subscribe To Our Newsletter",
-  description: "Stay ahead with IT insights, security alerts and industry updates from the ITSolvez team — delivered to your inbox monthly.",
+  description: "Stay ahead with IT insights, security alerts and industry updates from the ITSolvez team, delivered to your inbox monthly.",
   primary_text: "Book a Free Consultation", primary_url: "/contact",
   secondary_text: "Read Our Blog", secondary_url: "/blog",
   footnote: "No spam. Unsubscribe at any time. DPDPA 2023 compliant.",
@@ -165,12 +165,12 @@ const FALLBACK_CTA: CtaSection = {
 const FALLBACK_PROCESS: ProcessSection = {
   tag: "Our Process",
   heading: "How we work",
-  subtitle: "A repeatable, transparent delivery model — whether you're onboarding managed IT or launching a custom software project.",
+  subtitle: "A repeatable, transparent delivery model, whether you're onboarding managed IT or launching a custom software project.",
   steps: [
-    { title: "Discover", description: "Structured assessment of your IT environment, goals and constraints — no assumptions, no generic playbooks." },
-    { title: "Design",   description: "Engineers design a solution specific to your business — architecture, integrations, security posture, and a costed roadmap." },
+    { title: "Discover", description: "Structured assessment of your IT environment, goals and constraints, no assumptions, no generic playbooks." },
+    { title: "Design",   description: "Engineers design a solution specific to your business, architecture, integrations, security posture, and a costed roadmap." },
     { title: "Build",    description: "We execute in clear, measurable phases. Onboarding is complete and documented before we take over operations." },
-    { title: "Run",      description: "We manage, monitor, optimise and report — continuously. Quarterly reviews keep your technology aligned to your goals." },
+    { title: "Run",      description: "We manage, monitor, optimise and report, continuously. Quarterly reviews keep your technology aligned to your goals." },
   ],
 };
 
@@ -178,22 +178,22 @@ const FALLBACK_SERVICES: ServicesSection = {
   tag: "What We Do",
   heading: "Every IT challenge,",
   heading_accent: "one accountable partner",
-  subtitle: "From the infrastructure your business runs on to the software your customers use — we design, build and manage it all.",
+  subtitle: "From the infrastructure your business runs on to the software your customers use, we design, build and manage it all.",
   cta_text: "View all 12 services",
   cta_url: "/services",
   cards: [
     { icon: "Monitor",       title: "Managed IT Services",        description: "Proactive 24/7 monitoring, support, and management of your entire IT environment so your team stays focused.",           link_url: "/services/managed-it",               link_label: "Explore Service" },
     { icon: "Cloud",         title: "Cloud Computing",            description: "Design, migrate, and optimise your cloud infrastructure across AWS, Azure, and Google Cloud for maximum agility.",       link_url: "/services/cloud-computing",          link_label: "Explore Service" },
-    { icon: "Shield",        title: "Cybersecurity",              description: "End-to-end protection — threat detection, vulnerability management, compliance auditing, and incident response.",        link_url: "/services/cyber-security",           link_label: "Explore Service" },
+    { icon: "Shield",        title: "Cybersecurity",              description: "End-to-end protection, threat detection, vulnerability management, compliance auditing, and incident response.",        link_url: "/services/cyber-security",           link_label: "Explore Service" },
     { icon: "Code",          title: "Custom Software Development",description: "Bespoke web and enterprise applications built with modern stacks, delivered on time and on budget.",                    link_url: "/services/custom-software",          link_label: "Explore Service" },
-    { icon: "Globe",         title: "Web Development",            description: "Performant, SEO-ready websites and portals — from landing pages to complex multi-tenant web platforms.",                link_url: "/services/web-development",          link_label: "Explore Service" },
+    { icon: "Globe",         title: "Web Development",            description: "Performant, SEO-ready websites and portals, from landing pages to complex multi-tenant web platforms.",                link_url: "/services/web-development",          link_label: "Explore Service" },
     { icon: "Smartphone",    title: "App Development",            description: "Native and cross-platform mobile apps for iOS and Android that delight users and drive business outcomes.",              link_url: "/services/app-development",          link_label: "Explore Service" },
     { icon: "TrendingUp",    title: "Digital Marketing",          description: "Data-driven SEO, PPC, social media, and content strategies that turn visitors into qualified leads.",                   link_url: "/services/digital-marketing",        link_label: "Explore Service" },
-    { icon: "Users",         title: "IT Consultancy",             description: "Strategic technology advisory — roadmaps, architecture reviews, vendor selection, and digital transformation.",         link_url: "/services/it-consultancy",           link_label: "Explore Service" },
+    { icon: "Users",         title: "IT Consultancy",             description: "Strategic technology advisory, roadmaps, architecture reviews, vendor selection, and digital transformation.",         link_url: "/services/it-consultancy",           link_label: "Explore Service" },
     { icon: "Layers",        title: "System Integration",         description: "Connect disparate platforms, ERPs, CRMs, and APIs into a seamless, automated data ecosystem.",                         link_url: "/services/system-integration",       link_label: "Explore Service" },
     { icon: "Settings",      title: "IT Infrastructure Management",description:"Server, network, and data-centre management to keep your core infrastructure reliable and scalable.",                  link_url: "/services/it-infrastructure-management", link_label: "Explore Service" },
     { icon: "Database",      title: "Data and Analytics",           description: "Turn raw data into actionable intelligence with warehousing, BI dashboards, and predictive analytics.",                link_url: "/services/data-analytics",           link_label: "Explore Service" },
-    { icon: "HeadphonesIcon",title: "IT Support and Helpdesk",      description: "Responsive Level 1–3 helpdesk for your employees — remote and on-site — with guaranteed SLA response times.",         link_url: "/services/it-support",               link_label: "Explore Service" },
+    { icon: "HeadphonesIcon",title: "IT Support and Helpdesk",      description: "Responsive Level 1–3 helpdesk for your employees, remote and on-site, with guaranteed SLA response times.",         link_url: "/services/it-support",               link_label: "Explore Service" },
   ],
 };
 

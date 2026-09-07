@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     getGenericPage("cookie-policy").catch(() => null),
   ]);
   return buildMetadata({
-    title: seo?.meta_title || page?.seo_title || "Cookie Policy — ITSolvez",
+    title: seo?.meta_title || page?.seo_title || "Cookie Policy, ITSolvez",
     description: seo?.meta_description || page?.search_description || "How ITSolvez uses cookies and similar tracking technologies on itsolvez.com.",
     keywords: seo?.meta_keywords,
     slug: "cookie-policy",

@@ -205,7 +205,7 @@ export default async function IndustryDetailPage({ params }: Props) {
           </h2>
           <p className="text-[#EAF0FA]/65 max-w-lg mx-auto mb-8">
             Book a free assessment and we&apos;ll map your current state to where
-            you need to be — on your terms and timeline.
+            you need to be, on your terms and timeline.
           </p>
           <Link href="/contact" className="btn-primary" prefetch={false}>
             Book a Free Consultation <ArrowRight size={16} />

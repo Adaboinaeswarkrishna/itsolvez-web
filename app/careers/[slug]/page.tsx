@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!job) return {};
   return buildMetadata({
     title: `${job.title} | ITSolvez`,
-    description: `${job.title} — ${job.department}, ${job.location}. ${job.experience ? `${job.experience} experience. ` : ""}Apply now at ITSolvez.`,
+    description: `${job.title}, ${job.department}, ${job.location}. ${job.experience ? `${job.experience} experience. ` : ""}Apply now at ITSolvez.`,
     keywords: [job.title, "ITSolvez careers", "IT jobs Mumbai", job.department],
     slug: `careers/${slug}`,
     ogImage: "/og-image.png",

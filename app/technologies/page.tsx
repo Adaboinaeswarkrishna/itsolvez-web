@@ -12,7 +12,7 @@ export const revalidate = 3600;
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Our Tech Stack — AI, Web, Mobile and Cloud | ITSolvez",
+    title: "Our Tech Stack, AI, Web, Mobile and Cloud | ITSolvez",
     description: "The technologies ITSolvez builds with: AI/ML (TensorFlow, PyTorch, LangChain), Flutter and React Native, Next.js, Node.js, AWS/Azure/GCP and major databases.",
     keywords: ["ITSolvez tech stack", "AI development technologies", "react development company India", "nextjs development company", "flutter development stack", "node.js development company India"],
     slug: "technologies",
@@ -21,10 +21,10 @@ export function generateMetadata(): Metadata {
 }
 
 const HOW_WE_CHOOSE = [
-  { title: "Fit over fashion", desc: "The stack is chosen in discovery, per project — your team, your budget, your scale targets. We don't force one framework on every client." },
+  { title: "Fit over fashion", desc: "The stack is chosen in discovery, per project, your team, your budget, your scale targets. We don't force one framework on every client." },
   { title: "Production-proven only", desc: "Every technology here has shipped in real client systems we maintain today. No résumé-driven experiments on your budget." },
   { title: "Exit-friendly by design", desc: "Mainstream, well-documented technologies mean any competent team can maintain what we build. No lock-in by obscurity." },
-  { title: "AI-ready foundations", desc: "Data models and APIs are structured so AI features — chat, RAG, analytics — can be added without a rebuild." },
+  { title: "AI-ready foundations", desc: "Data models and APIs are structured so AI features, chat, RAG, analytics, can be added without a rebuild." },
 ];
 
 export default function TechnologiesPage() {
@@ -41,7 +41,7 @@ export default function TechnologiesPage() {
         tag="Our Tech Stack"
         title="The technologies behind"
         titleAccent="every build."
-        subtitle={`${total}+ production-proven technologies across AI and machine learning, mobile, web, backend, cloud and databases — chosen per project in discovery, and maintained by the ISO 9001-certified team that ships with them daily.`}
+        subtitle={`${total}+ production-proven technologies across AI and machine learning, mobile, web, backend, cloud and databases, chosen per project in discovery, and maintained by the ISO 9001-certified team that ships with them daily.`}
         bgImage="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Technologies" }]}
         waveFill="#F4F7FC"
@@ -61,7 +61,7 @@ export default function TechnologiesPage() {
             <span className="section-tag mb-5">How we choose</span>
             <h2 className="section-heading mb-4">A stack decision is a business decision</h2>
             <p className="text-[#5A6380] leading-relaxed">
-              The wrong technology choice costs you twice — once to build, once to escape.
+              The wrong technology choice costs you twice, once to build, once to escape.
               Four rules govern every recommendation we make.
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function TechnologiesPage() {
       <InquirySection
         source="Page: Technologies"
         heading="Not sure which stack fits your project?"
-        subheading="Tell us what you're building — we'll recommend the right technologies in a free consultation, with honest reasoning you can challenge."
+        subheading="Tell us what you're building, we'll recommend the right technologies in a free consultation, with honest reasoning you can challenge."
       />
     </>
   );

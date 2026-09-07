@@ -13,7 +13,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("about");
   return buildMetadata({
-    title: seo?.meta_title || "About ITSolvez — Mumbai IT Partner for Businesses",
+    title: seo?.meta_title || "About ITSolvez - Mumbai IT Partner for Businesses",
     description: seo?.meta_description || "Mumbai-headquartered IT company delivering custom software, web and app development, managed IT and staff augmentation for businesses worldwide.",
     keywords: seo?.meta_keywords || ["about ITSolvez", "software company Mumbai", "custom software developers India", "IT staff augmentation India", "managed IT services Mumbai"],
     slug: "about",
@@ -28,8 +28,8 @@ export default async function AboutPage() {
 
   const heroSubtitle = page?.hero_subtitle ?? `ITSolvez is an ISO 9001, ISO 27001 and ISO 20000-1 certified, Mumbai-headquartered IT company delivering custom software, web and mobile app development, managed IT and digital services to businesses across India and ${siteConfig.stats.countriesServed}+ countries.`;
   const story = page?.story ?? "";
-  const mission = page?.mission ?? "To make enterprise-grade IT accessible to every business — not just those with enterprise budgets.";
-  const vision = page?.vision ?? "To be the most trusted IT partner for growing businesses across India — the team they call first, not last.";
+  const mission = page?.mission ?? "To make enterprise-grade IT accessible to every business, not just those with enterprise budgets.";
+  const vision = page?.vision ?? "To be the most trusted IT partner for growing businesses across India, the team they call first, not last.";
   const certifications = page?.certifications?.split(",").map(s => s.trim()).filter(Boolean) ?? ["ISO 9001:2015 Certified", "ISO 27001:2022 Certified", "ISO 20000-1:2018 Certified", "Microsoft Partner", "AWS Certified", "Google Cloud Partner", "DPDPA 2023 Compliant"];
   const stats = {
     years: page?.stats_years ?? `${siteConfig.stats.yearsInBusiness}+`,
@@ -38,7 +38,7 @@ export default async function AboutPage() {
     countries: page?.stats_countries ?? `${siteConfig.stats.countriesServed}+`,
   };
   const values = page?.values?.length ? page.values.map(v => v.value) : [
-    { icon: "Zap", title: "Proactive, not reactive", description: "We prevent problems, not just fix them. Continuous monitoring means your team rarely notices IT at all — because it just works." },
+    { icon: "Zap", title: "Proactive, not reactive", description: "We prevent problems, not just fix them. Continuous monitoring means your team rarely notices IT at all, because it just works." },
     { icon: "CheckCircle2", title: "Accountable by design", description: "SLAs, named engineers and monthly reporting you can take to the board. We measure ourselves by your outcomes, not our activity." },
     { icon: "Globe", title: "Vendor-honest", description: "Our recommendation is always what's right for your business, not what earns us the most partner revenue." },
     { icon: "Users", title: "One team, one point of contact", description: "Across every service, you deal with one team that knows your environment. No handoffs, no gaps." },
@@ -56,7 +56,7 @@ export default async function AboutPage() {
   const founderBio = page?.founder_bio ?? "IT strategy, business development, and the vision behind ITSolvez.";
   const leadership = [
     { name: founderName, role: founderRole, bio: founderBio },
-    { name: "Asha Yadav", role: "HR Head", bio: "Hiring, onboarding and people operations — building the team behind every engagement." },
+    { name: "Asha Yadav", role: "HR Head", bio: "Hiring, onboarding and people operations, building the team behind every engagement." },
     { name: "Yash", role: "Technical Head", bio: "Technical architecture and engineering standards across every client project." },
     { name: "Venkatesh", role: "Sales and Marketing Head", bio: "Owns the sales pipeline and go-to-market strategy for new and existing clients." },
     { name: "Krishna", role: "Financial Head", bio: "Financial planning, billing and compliance across every engagement." },
@@ -99,7 +99,7 @@ export default async function AboutPage() {
               ) : (
                 <div className="space-y-4 text-[#5A6380] leading-relaxed text-sm">
                   <p>ITSolvez was founded with a simple observation: most businesses were either under-served by their IT provider or paying for complexity they didn&apos;t need.</p>
-                  <p>Today we serve {siteConfig.stats.clientsServed}+ clients across banking, manufacturing, healthcare, logistics and technology — from Mumbai-based SMEs to organisations with operations across India and internationally.</p>
+                  <p>Today we serve {siteConfig.stats.clientsServed}+ clients across banking, manufacturing, healthcare, logistics and technology, from Mumbai-based SMEs to organisations with operations across India and internationally.</p>
                 </div>
               )}
               <div className="grid sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[#E5E9F2]">
@@ -245,14 +245,14 @@ export default async function AboutPage() {
             <span className="section-tag mb-4">Leadership</span>
             <h2 className="section-heading mb-4">The team behind ITSolvez</h2>
             <p className="text-[#5A6380] leading-relaxed">
-              Our leadership spans engineering, sales, marketing, finance and HR — together they&apos;ve delivered {stats.projects} projects across {stats.countries} countries, with more roles opening up as we take on more of that work.
+              Our leadership spans engineering, sales, marketing, finance and HR, together they&apos;ve delivered {stats.projects} projects across {stats.countries} countries, with more roles opening up as we take on more of that work.
             </p>
           </div>
           <div className="max-w-5xl mx-auto">
             <LeadershipSlider people={leadership} />
           </div>
           <div className="text-center mt-10">
-            <p className="text-sm text-[#5A6380] mb-4">We&apos;re actively hiring — see our current open roles.</p>
+            <p className="text-sm text-[#5A6380] mb-4">We&apos;re actively hiring, see our current open roles.</p>
             <Link href="/careers" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1878F0] hover:text-[#0B54B8] transition-colors" prefetch={false}>
               View open roles <ArrowRight size={14} />
             </Link>

@@ -10,8 +10,8 @@ export const revalidate = 3600;
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "Our Products — OnlyOnTrip, HRMS, JourneyXpress | ITSolvez",
-    description: "ITSolvez builds and operates its own SaaS products — OnlyOnTrip travel booking, JourneyXpress corporate travel, HRMS payroll and Factor Email marketing.",
+    title: "Our Products, OnlyOnTrip, HRMS, JourneyXpress | ITSolvez",
+    description: "ITSolvez builds and operates its own SaaS products, OnlyOnTrip travel booking, JourneyXpress corporate travel, HRMS payroll and Factor Email marketing.",
     keywords: ["ITSolvez products", "OnlyOnTrip travel booking", "ITSolvez HRMS payroll software", "JourneyXpress corporate travel", "Factor Email marketing software"],
     slug: "products",
     ogImage: "/og-image.png",
@@ -24,15 +24,15 @@ const PRODUCTS = [
     tagline: "Consumer flight, hotel and holiday booking platform",
     url: null as string | null,
     color: "#1878F0",
-    problem: "Most travel booking sites make you choose between a slick interface and honest pricing — bundled fees, confusing cancellation terms, and slow support when a flight gets rescheduled.",
+    problem: "Most travel booking sites make you choose between a slick interface and honest pricing, bundled fees, confusing cancellation terms, and slow support when a flight gets rescheduled.",
     solution: "OnlyOnTrip is ITSolvez's own consumer travel platform: flight search and booking, hotel reservations, and curated holiday packages in one checkout, built on the same Next.js/Node.js stack we build for clients.",
     features: [
       "Real-time flight and hotel search across multiple suppliers",
       "Integrated payments via Razorpay with transparent pricing at checkout",
       "Holiday package curation for domestic and international travel",
-      "Mobile-first booking flow — most bookings happen on a phone, so that's what we optimised for first",
+      "Mobile-first booking flow, most bookings happen on a phone, so that's what we optimised for first",
     ],
-    proof: "Running OnlyOnTrip ourselves means we've solved the unglamorous problems every travel platform hits — payment retries, inventory sync, cancellation edge cases — before we ever build one for a client.",
+    proof: "Running OnlyOnTrip ourselves means we've solved the unglamorous problems every travel platform hits, payment retries, inventory sync, cancellation edge cases, before we ever build one for a client.",
     tech: ["Next.js", "Node.js", "PostgreSQL", "Razorpay", "AWS"],
   },
   {
@@ -40,7 +40,7 @@ const PRODUCTS = [
     tagline: "Corporate travel booking and expense management",
     url: null as string | null,
     color: "#5B3FC8",
-    problem: "Corporate travel isn't consumer travel — it needs approval workflows, policy enforcement, GST-compliant invoicing and expense reconciliation that consumer booking sites don't handle.",
+    problem: "Corporate travel isn't consumer travel, it needs approval workflows, policy enforcement, GST-compliant invoicing and expense reconciliation that consumer booking sites don't handle.",
     solution: "JourneyXpress is our B2B travel platform, purpose-built for company travel desks: booking within policy, multi-level approvals, and finance-ready reporting.",
     features: [
       "Travel policy enforcement at the point of booking, not after the fact",
@@ -48,7 +48,7 @@ const PRODUCTS = [
       "GST-compliant invoicing and expense reconciliation exports",
       "Centralised dashboard for travel managers to track spend and compliance",
     ],
-    proof: "JourneyXpress exists because we needed it for our own operations first — corporate travel software built by a company that actually manages corporate travel.",
+    proof: "JourneyXpress exists because we needed it for our own operations first, corporate travel software built by a company that actually manages corporate travel.",
     tech: ["Django", "React", "PostgreSQL", "AWS"],
   },
   {
@@ -57,14 +57,14 @@ const PRODUCTS = [
     url: "https://hrmsitsolvez.com",
     color: "#0E9384",
     problem: "Indian payroll means PF, ESI and TDS calculations that change with every budget, plus leave, attendance and appraisal tracking most generic HR tools handle poorly or charge enterprise prices for.",
-    solution: "ITSolvez HRMS is our own cloud HR and payroll product, built specifically for Indian compliance — the same system we use to run payroll for our own team.",
+    solution: "ITSolvez HRMS is our own cloud HR and payroll product, built specifically for Indian compliance, the same system we use to run payroll for our own team.",
     features: [
       "Payroll processing with PF, ESI and TDS calculated automatically",
       "Employee onboarding, attendance and leave management in one system",
       "Performance appraisal cycles with configurable review templates",
-      "Self-service employee portal — payslips, leave requests, tax declarations",
+      "Self-service employee portal, payslips, leave requests, tax declarations",
     ],
-    proof: "We run our own payroll on this product. Every compliance edge case we've hit as an Indian employer is already handled in the software — not theoretical, tested on ourselves first.",
+    proof: "We run our own payroll on this product. Every compliance edge case we've hit as an Indian employer is already handled in the software, not theoretical, tested on ourselves first.",
     tech: ["Django", "React", "PostgreSQL", "AWS"],
   },
   {
@@ -72,15 +72,15 @@ const PRODUCTS = [
     tagline: "Email marketing and automation platform",
     url: "https://factoremail.com",
     color: "#F04830",
-    problem: "Most email marketing tools are priced and built for the US/EU market — expensive per-contact pricing, poor India-specific deliverability, and support in the wrong time zone.",
-    solution: "Factor Email is our own email marketing and automation platform — campaign building, list management and deliverability tooling, priced and supported for Indian and global SMB budgets.",
+    problem: "Most email marketing tools are priced and built for the US/EU market, expensive per-contact pricing, poor India-specific deliverability, and support in the wrong time zone.",
+    solution: "Factor Email is our own email marketing and automation platform, campaign building, list management and deliverability tooling, priced and supported for Indian and global SMB budgets.",
     features: [
       "Drag-and-drop campaign builder with reusable templates",
       "List segmentation and automation workflows (welcome series, re-engagement, abandoned actions)",
       "Deliverability monitoring and sender reputation tools",
-      "Campaign analytics — opens, clicks, conversions in one dashboard",
+      "Campaign analytics, opens, clicks, conversions in one dashboard",
     ],
-    proof: "We use Factor Email for our own marketing campaigns — client and prospect communication runs through the same product we sell.",
+    proof: "We use Factor Email for our own marketing campaigns, client and prospect communication runs through the same product we sell.",
     tech: ["Node.js", "React", "PostgreSQL", "AWS SES"],
   },
 ];
@@ -97,7 +97,7 @@ export default function ProductsPage() {
         tag="Our Products"
         title="We don't just build software."
         titleAccent="We run it ourselves."
-        subtitle="ITSolvez operates four live SaaS products — travel booking, corporate travel, HR and payroll, and email marketing. Every one started as a problem we had ourselves, and every one is still running in production today."
+        subtitle="ITSolvez operates four live SaaS products, travel booking, corporate travel, HR and payroll, and email marketing. Every one started as a problem we had ourselves, and every one is still running in production today."
         bgImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
         waveFill="#F4F7FC"
@@ -110,7 +110,7 @@ export default function ProductsPage() {
             <h2 className="section-heading mb-4">Proof, not a pitch</h2>
             <p className="text-[#5A6380] leading-relaxed">
               Any software company can promise they can build your product. We can show you four we already
-              built, launched, and still operate — with our own money and our own users on the line.
+              built, launched, and still operate, with our own money and our own users on the line.
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function ProductsPage() {
         <div className="container-custom text-center max-w-2xl mx-auto">
           <h2 className="section-heading mb-4">Want something built like this for your business?</h2>
           <p className="text-[#5A6380] leading-relaxed mb-8">
-            The same team, process and ISO-certified discipline behind these products is available for your project —
+            The same team, process and ISO-certified discipline behind these products is available for your project, 
             from a fixed-scope MVP to full product development.
           </p>
           <Link href="/services/custom-software" className="btn-primary inline-flex" prefetch={false}>
@@ -178,7 +178,7 @@ export default function ProductsPage() {
 
       <InquirySection source="Page: Products"
         heading="Have a product idea?"
-        subheading="Tell us what you're building — we'll tell you honestly whether it's a fit, timeline and cost, in a free consultation." />
+        subheading="Tell us what you're building, we'll tell you honestly whether it's a fit, timeline and cost, in a free consultation." />
     </>
   );
 }

@@ -13,7 +13,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("locations");
   return buildMetadata({
-    title: seo?.meta_title || "ITSolvez Locations — Mumbai HQ, Global Software Delivery",
+    title: seo?.meta_title || "ITSolvez Locations, Mumbai HQ, Global Software Delivery",
     description: seo?.meta_description || "Mumbai-based software company serving UAE, UK, USA, Singapore, Australia and global clients.",
     keywords: seo?.meta_keywords || ["ITSolvez Mumbai office", "software company Mira Road", "IT company Mumbai", "global software delivery"],
     slug: "locations",
@@ -26,7 +26,7 @@ export default async function LocationsPage() {
 
   const heroSubtitle = page?.hero_subtitle ?? "Our primary office is in Mira Road East, Mumbai. We serve clients across India remotely and provide on-site support in Mumbai and beyond.";
   const officeLabel = page?.office_label ?? "Registered Office";
-  const officeAddress = page?.office_address ?? `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.state} — ${siteConfig.address.postal}, India`;
+  const officeAddress = page?.office_address ?? `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.state}, ${siteConfig.address.postal}, India`;
   const officePhone = page?.office_phone ?? siteConfig.phone;
   const officeEmail = page?.office_email ?? siteConfig.email;
   const officeHours = page?.office_hours ?? "Monday – Saturday, 9:00 AM – 6:00 PM IST";

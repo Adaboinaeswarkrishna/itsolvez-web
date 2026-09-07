@@ -26,7 +26,7 @@ interface Props {
 export default function InquiryForm({
   source = "",
   heading = "Get a free consultation",
-  subheading = "Tell us what you need — we reply within one business day with clear next steps and honest pricing.",
+  subheading = "Tell us what you need, we reply within one business day with clear next steps and honest pricing.",
 }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
@@ -75,7 +75,7 @@ export default function InquiryForm({
         <CheckCircle2 size={40} className="text-[#10b981] mx-auto mb-4" />
         <h3 className="font-display text-xl font-bold text-white mb-2">Inquiry received!</h3>
         <p className="text-sm text-[#EAF0FA]/60 max-w-sm mx-auto">
-          Thank you — our team will call or email you within one business day. Need us sooner?{" "}
+          Thank you, our team will call or email you within one business day. Need us sooner?{" "}
           <a href="tel:+919967470207" className="text-[#1878F0] font-semibold">+91 9967470207</a>
         </p>
       </div>
@@ -123,12 +123,12 @@ export default function InquiryForm({
         </div>
         {status === "error" && (
           <p className="sm:col-span-2 text-sm text-[#F04830]">
-            Something went wrong — please try again or email info@itsolvez.com directly.
+            Something went wrong, please try again or email info@itsolvez.com directly.
           </p>
         )}
         <p className="sm:col-span-2 text-[11px] text-[#EAF0FA]/35 flex items-center gap-1.5">
           <ShieldCheck size={12} className="text-[#10b981]" />
-          ISO 27001 certified — your details are handled securely and never shared.
+          ISO 27001 certified, your details are handled securely and never shared.
         </p>
       </form>
     </div>

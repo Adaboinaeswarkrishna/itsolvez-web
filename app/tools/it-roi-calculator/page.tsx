@@ -10,7 +10,7 @@ export const revalidate = 3600;
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
-    title: "IT ROI Calculator — Managed IT Savings Estimate | ITSolvez",
+    title: "IT ROI Calculator, Managed IT Savings Estimate | ITSolvez",
     description: "Free interactive calculator: estimate what IT downtime costs your business and the annual impact of switching to managed IT services.",
     keywords: ["IT ROI calculator", "managed IT services cost calculator", "IT downtime cost calculator", "IT cost savings India"],
     slug: "tools/it-roi-calculator",
@@ -30,7 +30,7 @@ export default function RoiCalculatorPage() {
         tag="Free Tool"
         title="What is IT downtime"
         titleAccent="really costing you?"
-        subtitle="Estimate the cost of your current IT downtime and the net annual impact of switching to proactive managed IT — adjust the sliders to your business."
+        subtitle="Estimate the cost of your current IT downtime and the net annual impact of switching to proactive managed IT, adjust the sliders to your business."
         bgImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "IT ROI Calculator" }]}
         waveFill="#F4F7FC"
@@ -48,19 +48,19 @@ export default function RoiCalculatorPage() {
           <h2 className="section-heading mb-5">Downtime is a cost you already pay</h2>
           <div className="space-y-4 text-[#5A6380] leading-relaxed text-sm">
             <p>
-              Every hour your systems are down, you pay salaries for work that isn&apos;t happening — plus the orders,
+              Every hour your systems are down, you pay salaries for work that isn&apos;t happening, plus the orders,
               calls and deadlines lost in the gap. Most businesses never put a number on it, which is why reactive
               &quot;call someone when it breaks&quot; IT looks cheaper than it is.
             </p>
             <p>
               Proactive managed IT attacks the downtime itself: 24/7 monitoring catches failures before they stop work,
               patching closes the gaps that cause incidents, and SLA-backed response contains the ones that still happen.
-              The calculator above uses conservative industry assumptions — a well-run managed service typically prevents
+              The calculator above uses conservative industry assumptions, a well-run managed service typically prevents
               around two-thirds of unplanned downtime.
             </p>
             <p>
               Want the real numbers for your environment instead of estimates? A free assessment maps your actual
-              downtime sources, current spend and the exact package that fits — no obligation.
+              downtime sources, current spend and the exact package that fits, no obligation.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 mt-8">

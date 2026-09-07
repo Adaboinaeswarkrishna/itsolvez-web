@@ -12,8 +12,8 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("industries");
   return buildMetadata({
-    title: seo?.meta_title || "Industries We Serve — IT Solutions by Sector | ITSolvez",
-    description: seo?.meta_description || "Custom software for healthcare, retail, education, travel, finance, logistics and more — industry-specific ERP, CRM and mobile app solutions.",
+    title: seo?.meta_title || "Industries We Serve, IT Solutions by Sector | ITSolvez",
+    description: seo?.meta_description || "Custom software for healthcare, retail, education, travel, finance, logistics and more, industry-specific ERP, CRM and mobile app solutions.",
     keywords: seo?.meta_keywords || ["software development industries", "healthcare software", "retail ERP", "education management software", "travel software", "fintech software"],
     slug: "industries",
     ogImage: seo?.og_image || "/og-image.png",
@@ -49,7 +49,7 @@ export default async function IndustriesPage() {
         tag="Industries We Serve"
         title="IT built for"
         titleAccent="your industry."
-        subtitle="Every vertical has its own compliance obligations, infrastructure demands and risk profile. We know yours — and we design every engagement around it."
+        subtitle="Every vertical has its own compliance obligations, infrastructure demands and risk profile. We know yours, and we design every engagement around it."
         bgImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]}
         waveFill="#F4F7FC"

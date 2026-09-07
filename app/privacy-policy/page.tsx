@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     getGenericPage("privacy-policy").catch(() => null),
   ]);
   return buildMetadata({
-    title: seo?.meta_title || page?.seo_title || "Privacy Policy — ITSolvez",
-    description: seo?.meta_description || page?.search_description || "ITSolvez Privacy Policy — how we collect, use and protect your personal data.",
+    title: seo?.meta_title || page?.seo_title || "Privacy Policy, ITSolvez",
+    description: seo?.meta_description || page?.search_description || "ITSolvez Privacy Policy, how we collect, use and protect your personal data.",
     keywords: seo?.meta_keywords,
     slug: "privacy-policy",
   });

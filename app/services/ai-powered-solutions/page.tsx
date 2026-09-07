@@ -66,7 +66,7 @@ const TECH = [
 /* ─── FAQ ─── */
 const FAQS = [
   { q: "Do we need a huge dataset to start?", a: "Not always. Modern LLMs (GPT-4, Claude) can work with small datasets via fine-tuning or retrieval-augmented generation (RAG). We'll tell you honestly whether you have enough data at the discovery stage." },
-  { q: "Can you integrate AI into our existing ERP or CRM?", a: "Yes. We build API layers that your existing systems can call. No need to rebuild your core platform — we add AI as a module or microservice alongside what you already have." },
+  { q: "Can you integrate AI into our existing ERP or CRM?", a: "Yes. We build API layers that your existing systems can call. No need to rebuild your core platform, we add AI as a module or microservice alongside what you already have." },
   { q: "How long does a typical AI project take?", a: "A chatbot or document automation project typically takes 4–8 weeks from kick-off to deployment. More complex ML projects (predictive models, computer vision) take 8–16 weeks depending on data readiness." },
   { q: "What's the cost of an AI project?", a: "Small automation or chatbot projects: ₹1,50,000 – ₹5,00,000. Custom ML models or full AI product integrations: ₹5,00,000 – ₹25,00,000+. We give fixed-price quotes after the discovery call." },
   { q: "Is the data we share with you kept private?", a: "Yes. We sign NDAs before any data sharing. We do not use your data to train public models. We can deploy models within your own cloud environment (AWS, Azure, GCP) if data sovereignty is a concern." },
@@ -151,7 +151,7 @@ function InquiryForm() {
       <div>
         <label className="block text-xs font-semibold text-[#EAF0FA]/70 mb-1">What do you want to automate or build? *</label>
         <textarea value={form.requirement} onChange={set("requirement")} onBlur={blur("requirement")} rows={4}
-          placeholder="Describe the process or problem you want AI to solve — even a rough idea is fine."
+          placeholder="Describe the process or problem you want AI to solve, even a rough idea is fine."
           className={`w-full bg-white/10 border rounded-xl px-3 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none resize-none ${touched.requirement && errors.requirement ? "border-[#F87171] focus:border-[#F87171]" : "border-white/20 focus:border-white/50"}`} />
         {touched.requirement && errors.requirement && <p className="text-xs text-[#F87171] mt-1">{errors.requirement}</p>}
       </div>
@@ -192,7 +192,7 @@ export default function AIPoweredSolutionsPage() {
         tag="AI-Powered Solutions"
         title="Build smarter systems"
         titleAccent="powered by AI."
-        subtitle="From intelligent chatbots to predictive analytics — ITSolvez builds custom AI solutions that integrate with your existing business, reduce manual work and create measurable outcomes."
+        subtitle="From intelligent chatbots to predictive analytics, ITSolvez builds custom AI solutions that integrate with your existing business, reduce manual work and create measurable outcomes."
         bgImage="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "IT Solutions", href: "/services" }, { label: "AI-Powered Solutions" }]}
         waveFill="#060B24"
@@ -208,7 +208,7 @@ export default function AIPoweredSolutionsPage() {
               Six AI capabilities,<br />one accountable partner
             </h2>
             <p className="text-[#EAF0FA]/60 text-sm leading-relaxed">
-              Every solution is custom-built for your processes — not an off-the-shelf SaaS with your logo on it.
+              Every solution is custom-built for your processes, not an off-the-shelf SaaS with your logo on it.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -328,7 +328,7 @@ export default function AIPoweredSolutionsPage() {
                 We already run AI in our own products
               </h2>
               <p className="text-[#5A6380] text-sm leading-relaxed mb-6">
-                ITSolvez doesn&apos;t just sell AI strategy — we run AI in our own business. Our blog auto-generates weekly posts
+                ITSolvez doesn&apos;t just sell AI strategy, we run AI in our own business. Our blog auto-generates weekly posts
                 using Claude, our leads system uses ML to score and prioritise enquiries, and our HRMS product has an AI-powered
                 payroll anomaly detector. When we build AI for you, we bring real operational experience, not just theory.
               </p>
@@ -419,14 +419,14 @@ export default function AIPoweredSolutionsPage() {
               </h2>
               <p className="text-[#EAF0FA]/60 text-sm leading-relaxed mb-8">
                 No sales pitch. We start with an honest conversation about whether AI is actually the right solution for
-                your specific problem — and what it would realistically deliver.
+                your specific problem, and what it would realistically deliver.
               </p>
               <div className="space-y-4">
                 {[
                   { icon: Database, text: "We sign an NDA before reviewing any of your data or systems" },
                   { icon: Bot, text: "Proof of concept built in 2–4 weeks, see before you commit" },
                   { icon: BarChart3, text: "Fixed-price quotes, no open-ended AI consulting retainers" },
-                  { icon: CheckCircle2, text: "You own all code, models and data — no vendor lock-in" },
+                  { icon: CheckCircle2, text: "You own all code, models and data, no vendor lock-in" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3 text-sm text-[#EAF0FA]/70">
                     <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">

@@ -99,7 +99,7 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
               </div>
             ))}
           </div>
-          <p className="text-xs text-[#5A6380] mt-5 text-center">Indicative monthly rates, fixed for the engagement — no hourly tracking overhead. Final rate depends on specific skill requirements.</p>
+          <p className="text-xs text-[#5A6380] mt-5 text-center">Indicative monthly rates, fixed for the engagement, no hourly tracking overhead. Final rate depends on specific skill requirements.</p>
         </div>
       </section>
 
@@ -143,7 +143,7 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
 
       <InquirySection source={`Hire: ${data.role}`}
         heading={`Hire a ${data.roleShort} developer`}
-        subheading="Tell us your requirement — we short-list a matching developer for you to interview within days." />
+        subheading="Tell us your requirement, we short-list a matching developer for you to interview within days." />
     </>
   );
 }

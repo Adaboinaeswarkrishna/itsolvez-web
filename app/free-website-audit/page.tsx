@@ -9,7 +9,7 @@ const AUDIT_ITEMS = [
   {
     icon: Zap,
     title: "Page Speed and Core Web Vitals",
-    body: "We test your site on Google's actual metrics — LCP, FID, CLS. A slow site loses 53% of mobile visitors before the page loads.",
+    body: "We test your site on Google's actual metrics, LCP, FID, CLS. A slow site loses 53% of mobile visitors before the page loads.",
     color: "#F04830",
     bg: "#FFF0EC",
   },
@@ -23,28 +23,28 @@ const AUDIT_ITEMS = [
   {
     icon: Search,
     title: "On-Page SEO",
-    body: "Title tags, meta descriptions, heading structure, image alt text, canonical tags, sitemap, robots.txt — we check all of it.",
+    body: "Title tags, meta descriptions, heading structure, image alt text, canonical tags, sitemap, robots.txt, we check all of it.",
     color: "#0B8A3E",
     bg: "#EDFAF3",
   },
   {
     icon: TrendingUp,
     title: "Conversion Signals",
-    body: "Does your site tell visitors what to do next? We review CTAs, trust signals, form placement and enquiry flow — where leads fall off.",
+    body: "Does your site tell visitors what to do next? We review CTAs, trust signals, form placement and enquiry flow, where leads fall off.",
     color: "#7C3AED",
     bg: "#F5F0FF",
   },
   {
     icon: Shield,
     title: "Security and SSL",
-    body: "HTTPS, mixed content warnings, outdated plugins, admin panel exposure — common issues that hurt both trust and Google rankings.",
+    body: "HTTPS, mixed content warnings, outdated plugins, admin panel exposure, common issues that hurt both trust and Google rankings.",
     color: "#D97706",
     bg: "#FFFBEB",
   },
   {
     icon: Eye,
     title: "First Impressions Review",
-    body: "We'll tell you honestly what a first-time visitor sees in the first 5 seconds — and whether it builds confidence or doubt.",
+    body: "We'll tell you honestly what a first-time visitor sees in the first 5 seconds, and whether it builds confidence or doubt.",
     color: "#1878F0",
     bg: "#EAF2FF",
   },
@@ -56,7 +56,7 @@ const WHO_IS_IT_FOR = [
   "You're about to spend money on ads and want the site ready first",
   "You feel your competitors' sites look more professional",
   "You've had customer complaints about loading speed or mobile display",
-  "You want an honest second opinion — no sales pitch attached",
+  "You want an honest second opinion, no sales pitch attached",
 ];
 
 export default function FreeWebsiteAuditPage() {
@@ -103,7 +103,7 @@ export default function FreeWebsiteAuditPage() {
         tag="Free Website Audit"
         title="Find out what's holding"
         titleAccent="your website back."
-        subtitle="A free, honest review of your existing website — speed, mobile, SEO, conversions, security and first impressions. No sales pitch. Just a real expert opinion."
+        subtitle="A free, honest review of your existing website, speed, mobile, SEO, conversions, security and first impressions. No sales pitch. Just a real expert opinion."
         bgImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Free Website Audit" }]}
         waveFill="#F4F7FC"
@@ -121,7 +121,7 @@ export default function FreeWebsiteAuditPage() {
                 <h2 className="font-display text-2xl font-black text-[#0B1233] mb-2">What we review</h2>
                 <p className="text-sm text-[#5A6380] mb-6 leading-relaxed">
                   Our team reviews your website across 6 dimensions that directly affect how Google ranks it and how visitors convert.
-                  You get a written report — not a vague &quot;your site needs improvement&quot; summary.
+                  You get a written report, not a vague &quot;your site needs improvement&quot; summary.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {AUDIT_ITEMS.map((item) => (
@@ -154,15 +154,15 @@ export default function FreeWebsiteAuditPage() {
                 <h3 className="font-bold text-[#0B1233] mb-4">What you get from us</h3>
                 <div className="space-y-3">
                   {[
-                    { label: "Written audit report", desc: "A PDF/doc with findings per category — prioritised by impact." },
+                    { label: "Written audit report", desc: "A PDF/doc with findings per category, prioritised by impact." },
                     { label: "Priority issues list", desc: "What to fix first for the quickest improvement in rankings and conversions." },
-                    { label: "30-minute review call", desc: "Optional — we walk through the findings and answer your questions." },
+                    { label: "30-minute review call", desc: "Optional, we walk through the findings and answer your questions." },
                     { label: "No strings attached", desc: "We'll never pressure you to hire us. If you want to act on the findings yourself, go for it." },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#F04830] flex-shrink-0 mt-2" />
                       <div>
-                        <span className="text-sm font-semibold text-[#0B1233]">{item.label} — </span>
+                        <span className="text-sm font-semibold text-[#0B1233]">{item.label}, </span>
                         <span className="text-sm text-[#5A6380]">{item.desc}</span>
                       </div>
                     </div>
@@ -175,7 +175,7 @@ export default function FreeWebsiteAuditPage() {
                 <p className="text-[#EAF0FA]/60 text-xs mb-1">Why trust our review?</p>
                 <p className="text-white font-bold mb-2">We&apos;ve built and optimised 300+ live websites</p>
                 <p className="text-[#EAF0FA]/70 text-sm leading-relaxed">
-                  Including our own products — <span className="text-white font-semibold">OnlyOnTrip</span>, <span className="text-white font-semibold">JourneyXpress</span> and client sites in real estate, travel, EV, and enterprise —
+                  Including our own products, <span className="text-white font-semibold">OnlyOnTrip</span>, <span className="text-white font-semibold">JourneyXpress</span> and client sites in real estate, travel, EV, and enterprise, 
                   so our review comes from people who actively manage production websites, not consultants who just read checklists.
                 </p>
               </div>
@@ -243,7 +243,7 @@ export default function FreeWebsiteAuditPage() {
                           <option>Not getting enough leads/enquiries</option>
                           <option>Site looks outdated</option>
                           <option>Security concerns</option>
-                          <option>Not sure — want a full review</option>
+                          <option>Not sure, want a full review</option>
                         </select>
                       </div>
                       {status === "error" && <p className="text-red-500 text-xs">Something went wrong. Email info@itsolvez.com directly.</p>}

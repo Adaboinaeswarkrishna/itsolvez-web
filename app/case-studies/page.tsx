@@ -11,7 +11,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("case-studies");
   return buildMetadata({
-    title: seo?.meta_title || "Case Studies — Client Success Stories | ITSolvez",
+    title: seo?.meta_title || "Case Studies, Client Success Stories | ITSolvez",
     description: seo?.meta_description || "Real results: ERP, CRM, mobile app and web development projects delivering measurable ROI for global clients.",
     keywords: seo?.meta_keywords || ["software development case studies", "ERP implementation success", "mobile app case study", "CRM development results"],
     slug: "case-studies",

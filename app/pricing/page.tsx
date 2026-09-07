@@ -14,7 +14,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("pricing");
   return buildMetadata({
-    title: seo?.meta_title || "IT Services Pricing — Transparent Costs | ITSolvez",
+    title: seo?.meta_title || "IT Services Pricing, Transparent Costs | ITSolvez",
     description: seo?.meta_description || "Transparent pricing for custom software development, mobile app development, ERP and CRM implementation. Competitive offshore rates. Free quote.",
     keywords: seo?.meta_keywords || ["software development pricing", "mobile app development cost", "ERP implementation cost", "custom software quote India"],
     slug: "pricing",
@@ -32,7 +32,7 @@ export default async function PricingPage() {
   const page = await getPricingPage().catch(() => null);
   const plans: PricingPlan[] = page?.plans?.map(p => p.value) ?? FALLBACK_PLANS;
   const heroSubtitle = page?.hero_subtitle ?? "Fixed monthly fees based on your users and environment. All plans include a free IT assessment before commitment.";
-  const projectIntro = page?.project_pricing_intro ?? "Custom software development, web development, app development, cloud migration and digital marketing campaigns are priced per project. We provide a fixed-scope quote after the discovery phase — so you know exactly what you're paying before development begins.";
+  const projectIntro = page?.project_pricing_intro ?? "Custom software development, web development, app development, cloud migration and digital marketing campaigns are priced per project. We provide a fixed-scope quote after the discovery phase, so you know exactly what you're paying before development begins.";
   const disclaimer = page?.disclaimer ?? "All pricing is indicative. Final pricing is agreed after the free IT assessment based on your specific environment and requirements. GST applicable.";
 
   return (

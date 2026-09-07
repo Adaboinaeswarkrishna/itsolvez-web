@@ -18,8 +18,8 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("careers");
   return buildMetadata({
-    title: seo?.meta_title || "Careers at ITSolvez — Developer Jobs Mumbai and Remote",
-    description: seo?.meta_description || "Join ITSolvez — open roles for software developers, mobile app developers, UI/UX designers and more. Mumbai HQ + remote opportunities.",
+    title: seo?.meta_title || "Careers at ITSolvez, Developer Jobs Mumbai and Remote",
+    description: seo?.meta_description || "Join ITSolvez, open roles for software developers, mobile app developers, UI/UX designers and more. Mumbai HQ + remote opportunities.",
     keywords: seo?.meta_keywords || ["software developer jobs Mumbai", "mobile app developer jobs", "IT careers India", "tech careers Mumbai"],
     slug: "careers",
     ogImage: seo?.og_image || "/og-image.png",
@@ -63,7 +63,7 @@ export default async function CareersPage() {
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               { title: "Grow fast", desc: "Certification budgets, conference allowances, and a clear promotion path." },
-              { title: "Own your work", desc: "Engineers here have real responsibility — no micromanagement, no ticket factories." },
+              { title: "Own your work", desc: "Engineers here have real responsibility, no micromanagement, no ticket factories." },
               { title: "Work that matters", desc: "Our work keeps hospitals running, fintechs secure, and manufacturers efficient." },
             ].map((item) => (
               <div key={item.title} className="card-service bg-[#F4F7FC]">
@@ -81,7 +81,7 @@ export default async function CareersPage() {
           {jobs.length === 0 ? (
             <div className="text-center py-16 text-[#5A6380]">
               <p className="text-lg font-medium mb-2">No open roles right now</p>
-              <p className="text-sm mb-6">We&apos;re always interested in talented people — send us your CV.</p>
+              <p className="text-sm mb-6">We&apos;re always interested in talented people, send us your CV.</p>
               <Link href="/contact" className="btn-primary" prefetch={false}>Send CV <ArrowRight size={15} /></Link>
             </div>
           ) : (

@@ -12,7 +12,7 @@ export const revalidate = 3600;
 export function generateMetadata(): Metadata {
   return buildMetadata({
     title: "Hire Dedicated Developers in India | ITSolvez",
-    description: "Hire vetted, dedicated developers from India — React, Node.js, Flutter, Python, full-stack, UI/UX and WordPress. Interview before you commit.",
+    description: "Hire vetted, dedicated developers from India, React, Node.js, Flutter, Python, full-stack, UI/UX and WordPress. Interview before you commit.",
     keywords: ["hire dedicated developers india", "hire developers india", "it staff augmentation india", "offshore development team india", "remote developers for hire india"],
     slug: "hire",
     ogImage: "/og-image.png",
@@ -31,7 +31,7 @@ export default function HireIndexPage() {
         tag="IT Staff Augmentation"
         title="Hire dedicated developers"
         titleAccent="in India."
-        subtitle="Vetted developers embedded in your team on flexible monthly terms — you interview before you commit, direct access from day one, no recruitment overhead. ISO 9001-certified delivery process."
+        subtitle="Vetted developers embedded in your team on flexible monthly terms, you interview before you commit, direct access from day one, no recruitment overhead. ISO 9001-certified delivery process."
         bgImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Hire Developers" }]}
         waveFill="#F4F7FC"
@@ -43,7 +43,7 @@ export default function HireIndexPage() {
             <span className="section-tag mb-5">Choose a Role</span>
             <h2 className="section-heading mb-4">Which stack are you hiring for?</h2>
             <p className="text-[#5A6380] leading-relaxed">
-              Every role below is a real, distinct skillset — matched to your project, not a generic
+              Every role below is a real, distinct skillset, matched to your project, not a generic
               "developer" swap. Rates, use cases and FAQs are specific to each.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function HireIndexPage() {
 
       <InquirySection source="Page: Hire Developers Index"
         heading="Not sure which role fits your project?"
-        subheading="Tell us what you're building — we'll recommend the right role and rate in a free consultation." />
+        subheading="Tell us what you're building, we'll recommend the right role and rate in a free consultation." />
     </>
   );
 }

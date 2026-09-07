@@ -51,7 +51,7 @@ export function buildMetadata({
   // Title text for the generated share image — brand suffix stripped, the logo already
   // carries it — trimmed off any " - ..." / " | ..." / " — ..." brand tail (all three
   // separators handled so older stored titles still strip correctly).
-  const imageTitle = title.replace(/\s*[-|—]\s*ITSolvez.*$/i, "").trim() || fullTitle;
+  const imageTitle = title.replace(/\s*[-|, ]\s*ITSolvez.*$/i, "").trim() || fullTitle;
   // Strip any localhost/internal URL so social crawlers get the live absolute URL.
   // fixMediaUrl() already returns a fully-qualified https://itsolvez.com/... URL for
   // /media/ paths — do not prepend SITE_URL again here (that double-prefixes the domain).
@@ -111,7 +111,7 @@ export const orgSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
-      name: "ISO 9001:2015 — Quality Management System",
+      name: "ISO 9001:2015, Quality Management System",
       identifier: "25-07-21156543",
       url: `${SITE_URL}/certificates/iso-9001-2015.pdf`,
       validFrom: "2026-07-09",
@@ -121,7 +121,7 @@ export const orgSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
-      name: "ISO 27001:2022 — Information Security Management System",
+      name: "ISO 27001:2022, Information Security Management System",
       identifier: "25-07-21156544",
       url: `${SITE_URL}/certificates/iso-27001-2022.pdf`,
       validFrom: "2026-07-09",
@@ -131,7 +131,7 @@ export const orgSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
-      name: "ISO 20000-1:2018 — IT Service Management System",
+      name: "ISO 20000-1:2018, IT Service Management System",
       identifier: "25-07-21156545",
       url: `${SITE_URL}/certificates/iso-20000-1-2018.pdf`,
       validFrom: "2026-07-09",

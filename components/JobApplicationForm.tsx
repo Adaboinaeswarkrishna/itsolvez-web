@@ -160,7 +160,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
         <div>
           <label className="block text-xs font-semibold text-[#0B1233] mb-1">Anything else you&apos;d like to add?</label>
           <textarea value={form.message} onChange={set("message")} rows={3}
-            placeholder="Optional — cover note, portfolio link, notice period, etc."
+            placeholder="Optional, cover note, portfolio link, notice period, etc."
             className="w-full border border-[#E5E9F2] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-[#1878F0] resize-none" />
         </div>
         {status === "error" && <p className="text-xs text-[#F04830]">{errorMsg}</p>}

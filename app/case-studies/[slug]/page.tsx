@@ -111,7 +111,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 <Quote size={22} className="text-[#1878F0]/40 mb-3" />
                 <p className="text-lg text-[#0B1233] font-medium leading-relaxed mb-3">&ldquo;{cs.testimonial_quote}&rdquo;</p>
                 {cs.testimonial_author && (
-                  <p className="text-sm text-[#5A6380]">— {cs.testimonial_author}</p>
+                  <p className="text-sm text-[#5A6380]">, {cs.testimonial_author}</p>
                 )}
               </div>
             )}

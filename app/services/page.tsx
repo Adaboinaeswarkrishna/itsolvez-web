@@ -15,7 +15,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("services");
   return buildMetadata({
-    title: seo?.meta_title || "IT Services — Managed IT, Cloud and Software | ITSolvez",
+    title: seo?.meta_title || "IT Services, Managed IT, Cloud and Software | ITSolvez",
     description: seo?.meta_description || "ITSolvez delivers custom software development, mobile app development, web development, ERP, CRM, HRMS and digital marketing worldwide.",
     keywords: seo?.meta_keywords || ["custom software development services", "mobile app development services", "ERP development services", "CRM software development", "HRMS software development"],
     slug: "services",

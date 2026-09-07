@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     getGenericPage("terms").catch(() => null),
   ]);
   return buildMetadata({
-    title: seo?.meta_title || page?.seo_title || "Terms of Use — ITSolvez",
+    title: seo?.meta_title || page?.seo_title || "Terms of Use, ITSolvez",
     description: seo?.meta_description || page?.search_description || "Terms and conditions for use of the ITSolvez website and services.",
     keywords: seo?.meta_keywords,
     slug: "terms",

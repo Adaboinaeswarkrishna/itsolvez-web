@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSEO("certifications");
   return buildMetadata({
     title: seo?.meta_title || "ISO 9001, 27001 and 20000-1 Certified IT Company | ITSolvez",
-    description: seo?.meta_description || "Independently certified to ISO 9001:2015, ISO 27001:2022 and ISO 20000-1:2018 by Anglia Compliance Group — view and verify our certificates.",
+    description: seo?.meta_description || "Independently certified to ISO 9001:2015, ISO 27001:2022 and ISO 20000-1:2018 by Anglia Compliance Group, view and verify our certificates.",
     keywords: seo?.meta_keywords || ["ISO certified IT company India", "ISO 27001 certified IT services", "ISO 9001 software company", "ISO 20000-1 managed IT services", "certified IT company Mumbai"],
     slug: "certifications",
     ogImage: seo?.og_image || "/og-image.png",
@@ -29,7 +29,7 @@ const CERTS = [
     pdf: "/certificates/iso-9001-2015.pdf",
     number: "25-07-21156543",
     color: "#1878F0",
-    meaning: "Our delivery processes — from requirement gathering to deployment and support — are documented, measured and continually improved. Every project follows the same audited quality framework.",
+    meaning: "Our delivery processes, from requirement gathering to deployment and support, are documented, measured and continually improved. Every project follows the same audited quality framework.",
     covers: ["Consistent, repeatable project delivery", "Documented processes and accountability", "Continuous improvement cycles", "Customer-satisfaction driven"],
   },
   {
@@ -40,7 +40,7 @@ const CERTS = [
     pdf: "/certificates/iso-27001-2022.pdf",
     number: "25-07-21156544",
     color: "#F04830",
-    meaning: "Your data, source code and infrastructure credentials are protected by an audited security management system — risk assessments, access controls, incident response and staff security training.",
+    meaning: "Your data, source code and infrastructure credentials are protected by an audited security management system, risk assessments, access controls, incident response and staff security training.",
     covers: ["Audited data and access controls", "Risk assessment and treatment", "Incident response procedures", "Client confidentiality by design"],
   },
   {
@@ -51,7 +51,7 @@ const CERTS = [
     pdf: "/certificates/iso-20000-1-2018.pdf",
     number: "25-07-21156545",
     color: "#5B3FC8",
-    meaning: "Our managed IT and support services run on the international standard for IT service management — SLA governance, change management, and service continuity are independently audited.",
+    meaning: "Our managed IT and support services run on the international standard for IT service management, SLA governance, change management, and service continuity are independently audited.",
     covers: ["SLA-governed service delivery", "Change and release management", "Service continuity and availability", "Measurable service quality"],
   },
 ];
@@ -79,7 +79,7 @@ export default function CertificationsPage() {
         tag="Certified and Accredited"
         title="Independently audited."
         titleAccent="Internationally certified."
-        subtitle="ITSolvez holds three internationally recognised ISO certifications covering quality, information security and IT service management — assessed and issued by Anglia Compliance Group, UK. Every certificate below is public and independently verifiable."
+        subtitle="ITSolvez holds three internationally recognised ISO certifications covering quality, information security and IT service management, assessed and issued by Anglia Compliance Group, UK. Every certificate below is public and independently verifiable."
         bgImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Certifications" }]}
       />
@@ -106,7 +106,7 @@ export default function CertificationsPage() {
             <span className="section-tag mb-5">Our Certificates</span>
             <h2 className="section-heading mb-4">Three standards. One accountable IT partner.</h2>
             <p className="text-[#5A6380] leading-relaxed">
-              Certification isn&apos;t a logo on a slide — it&apos;s a recurring, independent audit of how we actually work.
+              Certification isn&apos;t a logo on a slide, it&apos;s a recurring, independent audit of how we actually work.
               Click any certificate to view the original PDF, or verify it directly with the certification body.
             </p>
           </div>
@@ -193,7 +193,7 @@ export default function CertificationsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="section-tag mb-5">Independent Verification</span>
-              <h2 className="section-heading mb-5">Don&apos;t take our word for it — verify it.</h2>
+              <h2 className="section-heading mb-5">Don&apos;t take our word for it, verify it.</h2>
               <p className="text-[#5A6380] leading-relaxed mb-6">
                 Every ITSolvez certificate is registered with Anglia Compliance Group and can be verified online in under a minute.
                 Each certificate also carries a QR code that links straight to the verification portal.
@@ -201,7 +201,7 @@ export default function CertificationsPage() {
               <ol className="space-y-4 mb-8">
                 {[
                   { icon: ExternalLink, text: <>Open the Anglia Compliance verification portal at <a href={VERIFY_URL} target="_blank" rel="noopener noreferrer" className="text-[#1878F0] font-semibold hover:underline">angliacompliance.uk/verify-certificate</a></> },
-                  { icon: Stamp, text: <>Enter the certificate number — e.g. <span className="font-mono font-semibold text-[#060B24]">25-07-21156543</span> for ISO 9001:2015</> },
+                  { icon: Stamp, text: <>Enter the certificate number, e.g. <span className="font-mono font-semibold text-[#060B24]">25-07-21156543</span> for ISO 9001:2015</> },
                   { icon: CalendarCheck, text: <>Confirm the certificate is issued to <strong className="text-[#060B24]">ITSOLVEZ</strong>, Mira Road East, Mumbai and valid until 9 July 2029</> },
                 ].map((step, i) => (
                   <li key={i} className="flex items-start gap-4">
@@ -222,7 +222,7 @@ export default function CertificationsPage() {
                 <div className="absolute -inset-6 rounded-full bg-[#D4A643]/15 blur-2xl" aria-hidden />
                 <Image
                   src="/certificates/anglia-compliance-seal.png"
-                  alt="Anglia Compliance Group — Global Trust, Certified seal"
+                  alt="Anglia Compliance Group, Global Trust, Certified seal"
                   width={280}
                   height={280}
                   className="relative w-56 h-56 sm:w-72 sm:h-72 drop-shadow-xl"
@@ -245,7 +245,7 @@ export default function CertificationsPage() {
             Work with a certified IT partner
           </h2>
           <p className="text-[#EAF0FA]/60 leading-relaxed mb-8">
-            Quality, security and service management — audited to international standards, so you don&apos;t have to hope for the best.
+            Quality, security and service management, audited to international standards, so you don&apos;t have to hope for the best.
           </p>
           <Link href="/contact"
             className="inline-flex items-center gap-2 bg-[#1878F0] hover:bg-[#0F5FC7] text-white font-semibold px-8 py-4 rounded-lg transition-colors" prefetch={false}>

@@ -120,7 +120,7 @@ export default async function BlogPage() {
         tag="Blog and Insights"
         title="IT intelligence for"
         titleAccent="Indian businesses."
-        subtitle="Practical guides on managed IT, cloud, cybersecurity, digital marketing and technology strategy — written by practitioners, not marketers."
+        subtitle="Practical guides on managed IT, cloud, cybersecurity, digital marketing and technology strategy, written by practitioners, not marketers."
         bgImage="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1920&q=80"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
       />
