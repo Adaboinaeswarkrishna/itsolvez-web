@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import { telHref } from "@/lib/validation";
 import AuroraField from "@/components/motion/AuroraField";
 import ParticleField from "@/components/motion/ParticleField";
-import { HERO_COLLAGE } from "@/lib/data/hero-collage";
 
 export interface HeroSlide {
   image_url: string;
@@ -56,9 +54,8 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[]; stats: Her
       {/* Dark base — the aurora, mesh and text all sit on this */}
       <div className="absolute inset-0 z-0" style={{ backgroundColor: "#060B24" }} />
 
-      {/* Premium aurora backdrop — calm, drifting colour glow instead of a
-          busy focal animation, so it supports the image collage on the
-          right rather than competing with it. */}
+      {/* Premium aurora backdrop — calm, drifting colour glow filling the
+          full width now the side image column is gone. */}
       <AuroraField className="absolute inset-0 z-[1]" />
       <ParticleField className="absolute inset-0 z-[1]" density={14} color="148, 163, 220" opacity={0.16} />
 
@@ -68,10 +65,8 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[]; stats: Her
       <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 0% 0%, rgba(240,72,48,0.12) 0%, transparent 60%)" }} />
 
       <div className="container-custom relative z-10 pt-32 pb-24 lg:pt-36 lg:pb-28 w-full">
-        <div className="grid lg:grid-cols-[58%_42%] gap-12 xl:gap-20 items-center">
-
-          {/* Left: sliding text */}
-          <div className="transition-all ease-out" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0px)" : "translateY(14px)", transitionDuration: visible ? "400ms" : "250ms" }}>
+        {/* Sliding text — full width now there's no side image column */}
+        <div className="transition-all ease-out" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0px)" : "translateY(14px)", transitionDuration: visible ? "400ms" : "250ms" }}>
 
             {/* Status pill */}
             <div className="status-pill mb-5 w-fit">Systems Operational · 99.9% uptime</div>
@@ -128,29 +123,6 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[]; stats: Her
               <button onClick={prev} aria-label="Previous" className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/15 hover:border-white/40 transition-all"><ChevronLeft size={18} /></button>
               <button onClick={next} aria-label="Next" className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/15 hover:border-white/40 transition-all"><ChevronRight size={18} /></button>
             </div>
-          </div>
-
-          {/* Right: real work, real results — a small image collage instead
-              of plain stat cards. Same real case-study images/outcomes used
-              elsewhere on the homepage, given a proper visual home here. */}
-          <div className="hidden lg:flex flex-col gap-4 items-end">
-            {HERO_COLLAGE.map((item, i) => (
-              <div
-                key={item.image}
-                className="float-slow relative w-72 h-36 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10"
-                style={{ animationDelay: `${i * 0.7}s` }}
-              >
-                <Image src={item.image} alt={item.alt} fill className="object-cover" sizes="288px" quality={65} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,11,36,0) 42%, rgba(6,11,36,0.90) 100%)" }} />
-                {item.tag && item.result && (
-                  <div className="absolute bottom-3.5 left-4 right-4">
-                    <span className="block text-[10px] font-semibold tracking-widest uppercase text-white/55 mb-1">{item.tag}</span>
-                    <div className="font-display font-bold text-white text-base leading-tight">{item.result}</div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
